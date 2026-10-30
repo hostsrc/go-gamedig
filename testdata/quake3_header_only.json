@@ -1,0 +1,28 @@
+{
+ "description": "Call of Duty: World at War reply that ends after the header, without a newline",
+ "args": [
+  "--type=codwaw"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff67657473746174757300",
+   "responses": [
+    "ffffffff737461747573526573706f6e7365"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "",
+  "maxplayers": 0,
+  "name": "",
+  "numplayers": 0,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {},
+  "version": ""
+ }
+}

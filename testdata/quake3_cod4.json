@@ -1,0 +1,335 @@
+{
+ "description": "Call of Duty 4: colored hostname, cvars and player names stripped by default, RGB codes, padded name, g_needpass/sv_maxclients copied as strings, 40 players with bots at ping 0",
+ "args": [
+  "--type=cod4mw"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff67657473746174757300",
+   "responses": [
+    "ffffffff737461747573526573706f6e73650a5c5f41646d696e5c5e3141646d696e5c5f456d61696c5c61646d696e406578616d706c652e6f72675c66735f67616d655c6d6f64732f70726f6d6f645c675f636f6d7061737353686f77456e656d6965735c305c675f67616d65747970655c73645c67616d656e616d655c43616c6c206f66204475747920345c6d61706e616d655c6d705f63726173685c70726f746f636f6c5c365c73686f727476657273696f6e5c312e375c73765f616c6c6f77416e6f6e796d6f75735c305c73765f64697361626c65436c69656e74436f6e736f6c655c305c73765f666c6f6f6470726f746563745c345c73765f686f73746e616d655c20205e31436c616e205e37536572766572205e332331205e584646383830306f72616e67655e3720205c73765f6d6178636c69656e74735c32345c73765f6d617850696e675c305c73765f70726976617465436c69656e74735c325c73765f70756e6b6275737465725c315c73765f707572655c315c73765f766f6963655c305c75695f6d6178636c69656e74735c33325c70737772645c305c6d6f645c315c675f6e656564706173735c305c76657273696f6e5c5e32436f443420585e3720312e38206c696e75782d69333836206275696c6420323031370a2d3520333020225e305b5441475d5e37506c617965723030220a333220333720225e315b5441475d5e37506c617965723031220a363920343420225e325b5441475d5e37506c617965723032220a313620353120225e335b5441475d5e37506c617965723033220a3533203020225e345b5441475d5e37506c617965723034220a3020363520225e355b5441475d5e37506c617965723035220a333720373220225e365b5441475d5e37506c617965723036220a373420373920225e375b5441475d5e37506c617965723037220a323120383620225e385b5441475d5e37506c617965723038220a353820393320225e395b5441475d5e37506c617965723039220a352031303020225e305b5441475d5e37506c617965723130220a34322031303720225e315b5441475d5e37506c617965723131220a37392031313420225e325b5441475d5e37506c617965723132220a3236203020225e335b5441475d5e37506c617965723133220a36332031323820225e345b5441475d5e37506c617965723134220a31302031333520225e355b5441475d5e37506c617965723135220a34372031343220225e365b5441475d5e37506c617965723136220a38342031343920225e375b5441475d5e37506c617965723137220a33312031353620225e385b5441475d5e37506c617965723138220a36382031363320225e395b5441475d5e37506c617965723139220a31352031373020225e305b5441475d5e37506c617965723230220a35322031373720225e315b5441475d5e37506c617965723231220a2d31203020225e325b5441475d5e37506c617965723232220a33362031393120225e335b5441475d5e37506c617965723233220a37332031393820225e345b5441475d5e37506c617965723234220a32302032303520225e355b5441475d5e37506c617965723235220a35372032313220225e365b5441475d5e37506c617965723236220a342032313920225e375b5441475d5e37506c617965723237220a34312032323620225e385b5441475d5e37506c617965723238220a373820333320225e395b5441475d5e37506c617965723239220a323520343020225e305b5441475d5e37506c617965723330220a3632203020225e315b5441475d5e37506c617965723331220a3920353420225e325b5441475d5e37506c617965723332220a343620363120225e335b5441475d5e37506c617965723333220a383320363820225e345b5441475d5e37506c617965723334220a333020373520225e355b5441475d5e37506c617965723335220a363720383220225e365b5441475d5e37506c617965723336220a313420383920225e375b5441475d5e37506c617965723337220a353120393620225e385b5441475d5e37506c617965723338220a2d322031303320225e395b5441475d5e37506c617965723339220a"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [
+   {
+    "name": "[TAG]Player04",
+    "raw": {
+     "frags": 53,
+     "ping": 0
+    }
+   },
+   {
+    "name": "[TAG]Player13",
+    "raw": {
+     "frags": 26,
+     "ping": 0
+    }
+   },
+   {
+    "name": "[TAG]Player22",
+    "raw": {
+     "frags": -1,
+     "ping": 0
+    }
+   },
+   {
+    "name": "[TAG]Player31",
+    "raw": {
+     "frags": 62,
+     "ping": 0
+    }
+   }
+  ],
+  "connect": "127.0.0.1:PORT",
+  "map": "mp_crash",
+  "maxplayers": "24",
+  "name": "Clan Server #1 orange",
+  "numplayers": 40,
+  "password": "0",
+  "players": [
+   {
+    "name": "[TAG]Player00",
+    "raw": {
+     "frags": -5,
+     "ping": 30
+    }
+   },
+   {
+    "name": "[TAG]Player01",
+    "raw": {
+     "frags": 32,
+     "ping": 37
+    }
+   },
+   {
+    "name": "[TAG]Player02",
+    "raw": {
+     "frags": 69,
+     "ping": 44
+    }
+   },
+   {
+    "name": "[TAG]Player03",
+    "raw": {
+     "frags": 16,
+     "ping": 51
+    }
+   },
+   {
+    "name": "[TAG]Player05",
+    "raw": {
+     "frags": 0,
+     "ping": 65
+    }
+   },
+   {
+    "name": "[TAG]Player06",
+    "raw": {
+     "frags": 37,
+     "ping": 72
+    }
+   },
+   {
+    "name": "[TAG]Player07",
+    "raw": {
+     "frags": 74,
+     "ping": 79
+    }
+   },
+   {
+    "name": "[TAG]Player08",
+    "raw": {
+     "frags": 21,
+     "ping": 86
+    }
+   },
+   {
+    "name": "[TAG]Player09",
+    "raw": {
+     "frags": 58,
+     "ping": 93
+    }
+   },
+   {
+    "name": "[TAG]Player10",
+    "raw": {
+     "frags": 5,
+     "ping": 100
+    }
+   },
+   {
+    "name": "[TAG]Player11",
+    "raw": {
+     "frags": 42,
+     "ping": 107
+    }
+   },
+   {
+    "name": "[TAG]Player12",
+    "raw": {
+     "frags": 79,
+     "ping": 114
+    }
+   },
+   {
+    "name": "[TAG]Player14",
+    "raw": {
+     "frags": 63,
+     "ping": 128
+    }
+   },
+   {
+    "name": "[TAG]Player15",
+    "raw": {
+     "frags": 10,
+     "ping": 135
+    }
+   },
+   {
+    "name": "[TAG]Player16",
+    "raw": {
+     "frags": 47,
+     "ping": 142
+    }
+   },
+   {
+    "name": "[TAG]Player17",
+    "raw": {
+     "frags": 84,
+     "ping": 149
+    }
+   },
+   {
+    "name": "[TAG]Player18",
+    "raw": {
+     "frags": 31,
+     "ping": 156
+    }
+   },
+   {
+    "name": "[TAG]Player19",
+    "raw": {
+     "frags": 68,
+     "ping": 163
+    }
+   },
+   {
+    "name": "[TAG]Player20",
+    "raw": {
+     "frags": 15,
+     "ping": 170
+    }
+   },
+   {
+    "name": "[TAG]Player21",
+    "raw": {
+     "frags": 52,
+     "ping": 177
+    }
+   },
+   {
+    "name": "[TAG]Player23",
+    "raw": {
+     "frags": 36,
+     "ping": 191
+    }
+   },
+   {
+    "name": "[TAG]Player24",
+    "raw": {
+     "frags": 73,
+     "ping": 198
+    }
+   },
+   {
+    "name": "[TAG]Player25",
+    "raw": {
+     "frags": 20,
+     "ping": 205
+    }
+   },
+   {
+    "name": "[TAG]Player26",
+    "raw": {
+     "frags": 57,
+     "ping": 212
+    }
+   },
+   {
+    "name": "[TAG]Player27",
+    "raw": {
+     "frags": 4,
+     "ping": 219
+    }
+   },
+   {
+    "name": "[TAG]Player28",
+    "raw": {
+     "frags": 41,
+     "ping": 226
+    }
+   },
+   {
+    "name": "[TAG]Player29",
+    "raw": {
+     "frags": 78,
+     "ping": 33
+    }
+   },
+   {
+    "name": "[TAG]Player30",
+    "raw": {
+     "frags": 25,
+     "ping": 40
+    }
+   },
+   {
+    "name": "[TAG]Player32",
+    "raw": {
+     "frags": 9,
+     "ping": 54
+    }
+   },
+   {
+    "name": "[TAG]Player33",
+    "raw": {
+     "frags": 46,
+     "ping": 61
+    }
+   },
+   {
+    "name": "[TAG]Player34",
+    "raw": {
+     "frags": 83,
+     "ping": 68
+    }
+   },
+   {
+    "name": "[TAG]Player35",
+    "raw": {
+     "frags": 30,
+     "ping": 75
+    }
+   },
+   {
+    "name": "[TAG]Player36",
+    "raw": {
+     "frags": 67,
+     "ping": 82
+    }
+   },
+   {
+    "name": "[TAG]Player37",
+    "raw": {
+     "frags": 14,
+     "ping": 89
+    }
+   },
+   {
+    "name": "[TAG]Player38",
+    "raw": {
+     "frags": 51,
+     "ping": 96
+    }
+   },
+   {
+    "name": "[TAG]Player39",
+    "raw": {
+     "frags": -2,
+     "ping": 103
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "_Admin": "Admin",
+   "_Email": "admin@example.org",
+   "fs_game": "mods/promod",
+   "g_compassShowEnemies": "0",
+   "g_gametype": "sd",
+   "g_needpass": "0",
+   "gamename": "Call of Duty 4",
+   "mapname": "mp_crash",
+   "mod": "1",
+   "protocol": "6",
+   "pswrd": "0",
+   "shortversion": "1.7",
+   "sv_allowAnonymous": "0",
+   "sv_disableClientConsole": "0",
+   "sv_floodprotect": "4",
+   "sv_hostname": "  Clan Server #1 orange  ",
+   "sv_maxPing": "0",
+   "sv_maxclients": "24",
+   "sv_privateClients": "2",
+   "sv_punkbuster": "1",
+   "sv_pure": "1",
+   "sv_voice": "0",
+   "ui_maxclients": "32",
+   "version": "CoD4 X 1.8 linux-i386 build 2017"
+  },
+  "version": "CoD4 X 1.8 linux-i386 build 2017"
+ }
+}

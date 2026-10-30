@@ -94,6 +94,8 @@ func buildOptions(flags map[string]string, positional []string) (gamedig.Options
 		NoBreadthOrder: flags["noBreadthOrder"] == "true",
 		SkipPlayers:    flags["requestPlayers"] == "false",
 		RequestRules:   flags["requestRules"] == "true",
+		// node-gamedig defaults stripColors to true.
+		KeepColors: flags["stripColors"] == "false",
 	}
 	if len(positional) > 0 {
 		// node-gamedig splits the target on ':' into host and port.

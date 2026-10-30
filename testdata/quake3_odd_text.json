@@ -1,0 +1,142 @@
+{
+ "description": "Windows-1252 bytes including undefined ones, NBSP padding, color-code edge cases (trailing ^, ^ before CR, short ^X), __proto__ and duplicate cvars, a dangling key, and odd player lines: unquoted, extra fields, missing ping, hex, signs, huge numbers, empty and split quotes; a line starting with NUL ends the list",
+ "args": [
+  "--type=q3a"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff67657473746174757300",
+   "responses": [
+    "ffffffff737461747573526573706f6e73650a5c73765f686f73746e616d655ca020436166e92080818d8f909d9f20ff5ea0a05c6d61706e616d655c5e317133e9646d315c5f5f70726f746f5f5f5c706f6c6c757465645c636f6e7374727563746f725c63746f725c6475705c66697273745c6475705c7365636f6e645c65646765315c615e5c65646765325c785e0d795c65646765335c5e5861625c65646765345c5e5861620d63646566675c65646765355c5e5e317a5c65646765365c5e583132333435363738395c76657273696f6e5c9371756f74656494205e3776315c64616e676c696e670a352032302062617265776f72640a31203220226e616d65642220226164647222206578747261206669656c64730a370a307831462033302022686578220a2d35202d3120226e656761746976652070696e67220a332061626320226e616e2070696e67220a393939393939393939393939393939393939393939393920316533202268756765220a2b34202b392022706c7573220a202032202020332020202022737061636564222020200a31093220332022746162220a3420352022220a34203520612262206322640a2d302030783020227a65726f6573220a3620372022c9e9852080220a002039203920226166746572206e756c220a38203820226e657665722072656164220a"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [
+   {
+    "name": "",
+    "raw": {
+     "frags": 7,
+     "ping": null
+    }
+   },
+   {
+    "name": "nan ping",
+    "raw": {
+     "frags": 3,
+     "ping": null
+    }
+   },
+   {
+    "name": "zeroes",
+    "raw": {
+     "frags": 0,
+     "ping": 0
+    }
+   }
+  ],
+  "connect": "127.0.0.1:PORT",
+  "map": "^1q3édm1",
+  "maxplayers": 0,
+  "name": "Café €�����Ÿ ÿ",
+  "numplayers": 14,
+  "password": false,
+  "players": [
+   {
+    "name": "bareword",
+    "raw": {
+     "frags": 5,
+     "ping": 20
+    }
+   },
+   {
+    "name": "named",
+    "raw": {
+     "address": "addr",
+     "frags": 1,
+     "ping": 2
+    }
+   },
+   {
+    "name": "hex",
+    "raw": {
+     "frags": 31,
+     "ping": 30
+    }
+   },
+   {
+    "name": "negative ping",
+    "raw": {
+     "frags": -5,
+     "ping": -1
+    }
+   },
+   {
+    "name": "huge",
+    "raw": {
+     "frags": 1e+23,
+     "ping": 1
+    }
+   },
+   {
+    "name": "plus",
+    "raw": {
+     "frags": 4,
+     "ping": 9
+    }
+   },
+   {
+    "name": "spaced",
+    "raw": {
+     "frags": 2,
+     "ping": 3
+    }
+   },
+   {
+    "name": "tab",
+    "raw": {
+     "frags": 1,
+     "ping": 3
+    }
+   },
+   {
+    "name": "",
+    "raw": {
+     "frags": 4,
+     "ping": 5
+    }
+   },
+   {
+    "name": "a",
+    "raw": {
+     "address": "b c",
+     "frags": 4,
+     "ping": 5
+    }
+   },
+   {
+    "name": "Éé… €",
+    "raw": {
+     "frags": 6,
+     "ping": 7
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "constructor": "ctor",
+   "dup": "second",
+   "edge1": "a^",
+   "edge2": "x^\ry",
+   "edge3": "ab",
+   "edge4": "ab\rcdefg",
+   "edge5": "1z",
+   "edge6": "789",
+   "mapname": "q3édm1",
+   "sv_hostname": "  Café €�����Ÿ ÿ ",
+   "version": "“quoted” v1"
+  },
+  "version": "“quoted” v1"
+ }
+}

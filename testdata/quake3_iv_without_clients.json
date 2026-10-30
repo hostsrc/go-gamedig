@@ -1,0 +1,50 @@
+{
+ "description": "Urban Terror reply with iv but no clients cvar: node-gamedig then leaves numplayers at 0",
+ "args": [
+  "--type=urbanterror"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff67657473746174757300",
+   "responses": [
+    "ffffffff737461747573526573706f6e73650a5c73765f686f73746e616d655c5e377c5572547c205e325075626c69635c6d61706e616d655c7574345f7475726e70696b655c73765f6d6178636c69656e74735c32305c69765c5e31342e332e345c675f67616d65747970655c345c617574685c310a313520363020225e315265645e37506c61796572220a332038302022426c7565506c61796572220a"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "ut4_turnpike",
+  "maxplayers": "20",
+  "name": "|UrT| Public",
+  "numplayers": 0,
+  "password": false,
+  "players": [
+   {
+    "name": "RedPlayer",
+    "raw": {
+     "frags": 15,
+     "ping": 60
+    }
+   },
+   {
+    "name": "BluePlayer",
+    "raw": {
+     "frags": 3,
+     "ping": 80
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "auth": "1",
+   "g_gametype": "4",
+   "iv": "4.3.4",
+   "mapname": "ut4_turnpike",
+   "sv_hostname": "|UrT| Public",
+   "sv_maxclients": "20"
+  },
+  "version": "^14.3.4"
+ }
+}

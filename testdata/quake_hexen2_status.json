@@ -1,0 +1,46 @@
+{
+ "description": "Hexen II: 0xFF-prefixed request and reply type, connect port is the query port minus 50",
+ "args": [
+  "--type=hexen2"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffffff7374617475730a00",
+   "responses": [
+    "ffffffff6e5c686f73746e616d655c73686f756c642062652069676e6f726564",
+    "ffffffffff6e5c686f73746e616d655c486578656e2049495c6d6178636c69656e74735c385c6d61705c64656d6f310a312035203630203333202250616c6164696e22202222203120320a"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT-50",
+  "map": "",
+  "maxplayers": "8",
+  "name": "Hexen II",
+  "numplayers": 1,
+  "password": false,
+  "players": [
+   {
+    "name": "Paladin",
+    "raw": {
+     "color1": 1,
+     "color2": 2,
+     "id": 1,
+     "ping": 33,
+     "score": 5,
+     "skin": "",
+     "time": 60
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "hostname": "Hexen II",
+   "map": "demo1",
+   "maxclients": "8"
+  },
+  "version": ""
+ }
+}

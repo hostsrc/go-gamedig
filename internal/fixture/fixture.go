@@ -81,8 +81,14 @@ func Normalize(v map[string]any, port int) map[string]any {
 	if q, ok := v["queryPort"].(float64); ok && int(q) == port {
 		v["queryPort"] = 0
 	}
-	if c, ok := v["connect"].(string); ok && c == fmt.Sprintf("127.0.0.1:%d", port) {
-		v["connect"] = "127.0.0.1:PORT"
+	if c, ok := v["connect"].(string); ok {
+		switch c {
+		case fmt.Sprintf("127.0.0.1:%d", port):
+			v["connect"] = "127.0.0.1:PORT"
+		case fmt.Sprintf("127.0.0.1:%d", port-50):
+			// hexen2 reports the game port as the query port minus 50.
+			v["connect"] = "127.0.0.1:PORT-50"
+		}
 	}
 	return v
 }
