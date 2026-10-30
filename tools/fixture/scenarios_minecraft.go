@@ -14,7 +14,7 @@ func init() { scenarioSets = append(scenarioSets, minecraftScenarios) }
 // challenge and a Bedrock ping over UDP, all to the same port, so every
 // scenario lists all three; unanswered ones simply have no responses.
 func minecraftScenarios() []scenario {
-	silentGS3 := ex(gs3Req(9, nil))
+	silentGS3 := ex(mcGS3Req(9, nil))
 	silentBedrock := ex(bedrockPing())
 	silentJava := javaEx()
 
@@ -55,7 +55,7 @@ func minecraftScenarios() []scenario {
 	allThree := `{"version":{"name":"Velocity 3.3.0","protocol":767},"players":{"max":500,"online":12,` +
 		`"sample":[{"name":"javaone","id":"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"}]},"description":"Java MOTD"}`
 
-	gs3Stat := gs3StatReply(
+	gs3Stat := mcGS3Stat(
 		[][2]string{
 			{"hostname", "§6Query  §lMOTD"}, {"gametype", "SMP"}, {"game_id", "MINECRAFT"},
 			{"version", "1.20.4"}, {"plugins", "Paper on 1.20.4: Essentials 2.20"}, {"map", "world"},
@@ -102,13 +102,22 @@ func minecraftScenarios() []scenario {
 			Exchanges:   []fixture.Exchange{javaEx(javaStatus(odd)), silentGS3, silentBedrock},
 		},
 		{
+			Name:        "minecraft_odd_counts",
+			Description: "player counts that are a fraction and a string, and player names that aren't strings, which node-gamedig prints as they are",
+			Args:        []string{"--type=minecraft", "--socketTimeout=300"},
+			Exchanges: []fixture.Exchange{
+				javaEx(javaStatus(`{"players":{"max":"20","online":2.5,"sample":[{"name":42,"id":"a"},{"name":{"x":[1]}},{"name":"ok"}]},"version":{"name":7}}`)),
+				silentGS3, silentBedrock,
+			},
+		},
+		{
 			Name:        "minecraft_java_query",
 			Description: "Java server with enable-query: GameSpy 3 name and players override the status ping",
 			Args:        []string{"--type=minecraft", "--socketTimeout=300"},
 			Exchanges: []fixture.Exchange{
 				javaEx(javaStatus(plain)),
-				ex(gs3Req(9, nil), gs3ChallengeReply("9513307")),
-				ex(gs3Req(0, i32p(9513307)), gs3Stat),
+				ex(mcGS3Req(9, nil), mcGS3Challenge("9513307")),
+				ex(mcGS3Req(0, i32p(9513307)), gs3Stat),
 				silentBedrock,
 			},
 		},
@@ -118,8 +127,8 @@ func minecraftScenarios() []scenario {
 			Args:        []string{"--type=minecraft", "--socketTimeout=300"},
 			Exchanges: []fixture.Exchange{
 				javaEx(javaStatus(allThree)),
-				ex(gs3Req(9, nil), gs3ChallengeReply("-42")),
-				ex(gs3Req(0, i32p(-42)), reorderGS3(gs3Split(
+				ex(mcGS3Req(9, nil), mcGS3Challenge("-42")),
+				ex(mcGS3Req(0, i32p(-42)), mcReverse(mcGS3Split(
 					"hostname\x00GS3 name\x00numplayers\x004\x00maxplayers\x0040\x00gamever\x001.20\x00password\x001\x00mapname\x00gsmap\x00\x00",
 					"\x01player_\x00\x00one\x00two\x00\x00score_\x00\x00\x31\x00x\x00\x00team_t\x00\x00red\x00\x00",
 				))...),
@@ -223,9 +232,9 @@ func splitAt(b []byte, at ...int) [][]byte {
 
 func i32p(v int32) *int32 { return &v }
 
-// gs3Req is a GameSpy 3 request. node-gamedig passes false as the
+// mcGS3Req is a GameSpy 3 request. node-gamedig passes false as the
 // challenge of the challenge request itself, which still writes a zero key.
-func gs3Req(typ byte, challenge *int32) []byte {
+func mcGS3Req(typ byte, challenge *int32) []byte {
 	b := []byte{0xfe, 0xfd, typ, 0, 0, 0, 1}
 	if typ == 9 {
 		b = append(b, 0, 0, 0, 0)
@@ -238,13 +247,13 @@ func gs3Req(typ byte, challenge *int32) []byte {
 	return b
 }
 
-func gs3ChallengeReply(key string) []byte {
+func mcGS3Challenge(key string) []byte {
 	return append([]byte{9, 0, 0, 0, 1}, key+"\x00"...)
 }
 
-// gs3StatReply is a single-packet full stat: key/values, then the
+// mcGS3Stat is a single-packet full stat: key/values, then the
 // player section as raw bytes.
-func gs3StatReply(kv [][2]string, players string) []byte {
+func mcGS3Stat(kv [][2]string, players string) []byte {
 	b := []byte{0, 0, 0, 0, 1}
 	b = append(b, "splitnum\x00\x80\x00"...)
 	for _, p := range kv {
@@ -254,9 +263,9 @@ func gs3StatReply(kv [][2]string, players string) []byte {
 	return append(b, players...)
 }
 
-// gs3Split returns a full stat in one packet per part, numbered in order
+// mcGS3Split returns a full stat in one packet per part, numbered in order
 // with the last flagged.
-func gs3Split(parts ...string) [][]byte {
+func mcGS3Split(parts ...string) [][]byte {
 	var out [][]byte
 	for i, p := range parts {
 		id := byte(i)
@@ -271,7 +280,7 @@ func gs3Split(parts ...string) [][]byte {
 	return out
 }
 
-func reorderGS3(parts [][]byte) [][]byte {
+func mcReverse(parts [][]byte) [][]byte {
 	out := make([][]byte, 0, len(parts))
 	for i := len(parts) - 1; i >= 0; i-- {
 		out = append(out, parts[i])

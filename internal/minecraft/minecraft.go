@@ -34,6 +34,9 @@ type Options struct {
 	// Port is the server port, used for TCP and UDP alike. A SRV record's
 	// port is ignored, as node-gamedig ignores it whenever a port is known.
 	Port int
+	// StripColors is node-gamedig's stripColors option, passed on to the
+	// GameSpy 3 sub-query.
+	StripColors bool
 	// SocketTimeout bounds each request/response exchange. Default 2s.
 	SocketTimeout time.Duration
 	// Debugf, when set, receives a trace of the query.
@@ -47,8 +50,11 @@ type Options struct {
 
 // Player is one player in the merged result.
 type Player struct {
-	Name string
-	Raw  map[string]any
+	// Name is the name as a string. NameValue is node-gamedig's value,
+	// which differs when the status JSON gives a name that isn't a string.
+	Name      string
+	NameValue any
+	Raw       map[string]any
 }
 
 // Response is the merged server state. Raw holds the sub-query results
@@ -59,8 +65,12 @@ type Response struct {
 	Version    string
 	NumPlayers int
 	MaxPlayers int
-	Players    []Player
-	Raw        map[string]any
+	// NumPlayersValue and MaxPlayersValue are node-gamedig's values: the
+	// status JSON can make them fractions, strings or anything else.
+	NumPlayersValue any
+	MaxPlayersValue any
+	Players         []Player
+	Raw             map[string]any
 	// RTT is the shortest round trip of any sub-query.
 	RTT time.Duration
 }
@@ -220,13 +230,15 @@ func merge(opts Options, vanilla, gamespy, bedrock *sub) *Response {
 	}
 
 	res := &Response{
-		Name:       cleanName(name),
-		Map:        mapName,
-		Version:    jsString(version),
-		NumPlayers: toInt(numPlayers),
-		MaxPlayers: toInt(maxPlayers),
-		Raw:        raw,
-		RTT:        rtt,
+		Name:            cleanName(name),
+		Map:             mapName,
+		Version:         jsString(version),
+		NumPlayers:      toInt(numPlayers),
+		MaxPlayers:      toInt(maxPlayers),
+		NumPlayersValue: numPlayers,
+		MaxPlayersValue: maxPlayers,
+		Raw:             raw,
+		RTT:             rtt,
 	}
 	for _, p := range players {
 		// Names are strings unless the status JSON says otherwise.
@@ -234,19 +246,19 @@ func merge(opts Options, vanilla, gamespy, bedrock *sub) *Response {
 		if !ok {
 			n = jsString(p.name)
 		}
-		res.Players = append(res.Players, Player{Name: n, Raw: p.raw})
+		res.Players = append(res.Players, Player{Name: n, NameValue: p.name, Raw: p.raw})
 	}
 	return res
 }
 
-// toInt converts a player count to an int. node-gamedig passes through
-// whatever the status JSON holds; Result can only hold integers.
+// toInt converts a player count to an int: NaN, non-numbers and values
+// beyond ±2^53 become 0 and fractions are truncated.
 func toInt(v any) int {
 	f, ok := v.(float64)
-	if !ok || math.IsNaN(f) || math.IsInf(f, 0) {
+	if !ok || math.IsNaN(f) || math.Abs(f) > 1<<53 {
 		return 0
 	}
-	return int(max(min(f, math.MaxInt32), math.MinInt32))
+	return int(f)
 }
 
 // javaName flattens a status description into the server name like

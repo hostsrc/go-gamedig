@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"net"
+	"os"
 	"sync"
 	"time"
 )
@@ -120,4 +121,103 @@ func (m *udpMux) exchange(ctx context.Context, pkt []byte, timeout time.Duration
 			}
 		}
 	}
+}
+
+// newConn returns a view of the shared socket as a net.Conn of its own,
+// for a sub-query written against a plain UDP connection: writes go out
+// on the shared socket and reads return every datagram received after the
+// latest write. Like a node-gamedig udpSend callback, which is registered
+// once the send completes, datagrams that arrived before a write are
+// dropped.
+func (m *udpMux) newConn() *subConn {
+	c := &subConn{mux: m, ch: make(chan udpEvent, udpQueue), wake: make(chan struct{}, 1), closed: make(chan struct{})}
+	m.mu.Lock()
+	m.subs[c.ch] = struct{}{}
+	m.mu.Unlock()
+	return c
+}
+
+type subConn struct {
+	mux    *udpMux
+	ch     chan udpEvent
+	wake   chan struct{}
+	closed chan struct{}
+	once   sync.Once
+
+	mu       sync.Mutex
+	deadline time.Time
+}
+
+func (c *subConn) Write(b []byte) (int, error) {
+	c.drain()
+	c.mux.debug("UDP--> %x", b)
+	return c.mux.conn.Write(b)
+}
+
+// drain drops datagrams received before the next request.
+func (c *subConn) drain() {
+	for {
+		select {
+		case <-c.ch:
+		default:
+			return
+		}
+	}
+}
+
+func (c *subConn) Read(b []byte) (int, error) {
+	for {
+		c.mu.Lock()
+		dl := c.deadline
+		c.mu.Unlock()
+		var timeout <-chan time.Time
+		if !dl.IsZero() {
+			d := time.Until(dl)
+			if d <= 0 {
+				return 0, os.ErrDeadlineExceeded
+			}
+			timer := time.NewTimer(d)
+			timeout = timer.C
+			defer timer.Stop() // at most once per deadline change
+		}
+		select {
+		case ev := <-c.ch:
+			if ev.err != nil {
+				return 0, ev.err
+			}
+			return copy(b, ev.data), nil
+		case <-c.wake: // the deadline changed
+		case <-timeout:
+			return 0, os.ErrDeadlineExceeded
+		case <-c.closed:
+			return 0, net.ErrClosed
+		}
+	}
+}
+
+func (c *subConn) SetReadDeadline(t time.Time) error {
+	c.mu.Lock()
+	c.deadline = t
+	c.mu.Unlock()
+	select {
+	case c.wake <- struct{}{}:
+	default:
+	}
+	return nil
+}
+
+func (c *subConn) SetDeadline(t time.Time) error    { return c.SetReadDeadline(t) }
+func (c *subConn) SetWriteDeadline(time.Time) error { return nil }
+func (c *subConn) LocalAddr() net.Addr              { return c.mux.conn.LocalAddr() }
+func (c *subConn) RemoteAddr() net.Addr             { return c.mux.conn.RemoteAddr() }
+
+// Close unsubscribes from the shared socket, which stays open.
+func (c *subConn) Close() error {
+	c.once.Do(func() {
+		c.mux.mu.Lock()
+		delete(c.mux.subs, c.ch)
+		c.mux.mu.Unlock()
+		close(c.closed)
+	})
+	return nil
 }

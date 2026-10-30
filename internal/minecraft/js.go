@@ -196,26 +196,3 @@ func cleanName(s string) string {
 	}
 	return b.String()
 }
-
-// isArrayIndex reports whether JavaScript orders key as an integer index,
-// which Object.keys lists before other keys.
-func isArrayIndex(key string) bool {
-	if key == "" || len(key) > 10 || (len(key) > 1 && key[0] == '0') {
-		return false
-	}
-	for _, c := range []byte(key) {
-		if c < '0' || c > '9' {
-			return false
-		}
-	}
-	n, err := strconv.ParseUint(key, 10, 64)
-	return err == nil && n < 1<<32-1
-}
-
-// objectPrototypeKeys are the names the "in" operator finds on every plain
-// object through Object.prototype.
-var objectPrototypeKeys = map[string]bool{
-	"__proto__": true, "constructor": true, "hasOwnProperty": true, "isPrototypeOf": true,
-	"propertyIsEnumerable": true, "toString": true, "valueOf": true, "toLocaleString": true,
-	"__defineGetter__": true, "__defineSetter__": true, "__lookupGetter__": true, "__lookupSetter__": true,
-}

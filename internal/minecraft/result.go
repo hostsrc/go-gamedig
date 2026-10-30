@@ -1,6 +1,9 @@
 package minecraft
 
-import "time"
+import (
+	"strconv"
+	"time"
+)
 
 // sub is the result of one of the three sub-queries, shaped like
 // node-gamedig's Results object, which minecraft.js stores whole under
@@ -16,8 +19,8 @@ type sub struct {
 	maxPlayers any
 	numPlayers any
 	players    []player
-	// gamePort is GameSpy's hostport, or NaN.
-	gamePort float64
+	// gamePort is GameSpy's hostport as node prints it in connect, or "".
+	gamePort string
 	rtt      time.Duration
 }
 
@@ -29,7 +32,7 @@ type player struct {
 }
 
 func newSub() *sub {
-	return &sub{raw: map[string]any{}, version: "", maxPlayers: 0.0, numPlayers: 0.0, gamePort: 0}
+	return &sub{raw: map[string]any{}, version: "", maxPlayers: 0.0, numPlayers: 0.0}
 }
 
 func newPlayer(name any, raw map[string]any) player {
@@ -51,8 +54,8 @@ func registerRTT(cur *time.Duration, d time.Duration) {
 // json is what JSON.stringify prints for the sub-result after
 // node-gamedig's runOnce has filled in queryPort, connect and ping.
 func (s *sub) json(host string, port int) map[string]any {
-	connectPort := float64(port)
-	if truthy(s.gamePort) {
+	connectPort := strconv.Itoa(port)
+	if s.gamePort != "" {
 		connectPort = s.gamePort
 	}
 	players := make([]any, len(s.players))
@@ -68,7 +71,7 @@ func (s *sub) json(host string, port int) map[string]any {
 		"players":   players,
 		"bots":      []any{},
 		"queryPort": port,
-		"connect":   host + ":" + formatNumber(connectPort),
+		"connect":   host + ":" + connectPort,
 		"ping":      int(s.rtt.Milliseconds()),
 	}
 	if !isUndefined(s.maxPlayers) {

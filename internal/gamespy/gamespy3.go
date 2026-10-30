@@ -28,7 +28,9 @@ func Query3(ctx context.Context, c net.Conn, opts Options) (*Response, error) {
 	if err != nil {
 		return nil, err
 	}
-	challenge := parseInt(newReader(body[0]).string())
+	cr := newReader(body[0])
+	cr.utf8 = opts.UTF8
+	challenge := parseInt(cr.string())
 	q.debugf("challenge key %v", challenge)
 	// Some servers (BF2) send 0 when they don't want a challenge key used.
 	hasChallenge := challenge != 0
@@ -45,7 +47,7 @@ func Query3(ctx context.Context, c net.Conn, opts Options) (*Response, error) {
 	if err != nil {
 		return nil, err
 	}
-	res, err := Parse3(packets)
+	res, err := parse3(packets, opts.UTF8)
 	if err != nil {
 		return nil, err
 	}
@@ -123,13 +125,16 @@ var gamespy3IntKeys = map[string]bool{"score": true, "ping": true, "team": true,
 // Parse3 decodes the reassembled status packets. The first starts with
 // server key/value pairs; every packet then carries player, team and item
 // columns.
-func Parse3(packets [][]byte) (*Response, error) {
+func Parse3(packets [][]byte) (*Response, error) { return parse3(packets, false) }
+
+func parse3(packets [][]byte, utf8 bool) (*Response, error) {
 	raw := newObject()
 	info := newObject() // raw.playerTeamInfo: item type -> *[]*object
 	slots := 0
 
 	for i, packet := range packets {
 		r := newReader(packet)
+		r.utf8 = utf8
 		if i == 0 {
 			for !r.done() {
 				key := r.string()

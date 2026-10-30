@@ -240,35 +240,6 @@ func TestQueryHonoursContext(t *testing.T) {
 	}
 }
 
-func TestGamespy3ChallengeRange(t *testing.T) {
-	for in, want := range map[string]any{"0": nil, "-0": nil, "abc": int32(0), "-42": int32(-42), "2147483647": int32(math.MaxInt32)} {
-		c, err := gs3ParseChallenge(append([]byte(in), 0))
-		if err != nil {
-			t.Errorf("%s: %v", in, err)
-			continue
-		}
-		if (want == nil) != (c == nil) || c != nil && *c != want.(int32) {
-			t.Errorf("challenge %q = %v, want %v", in, c, want)
-		}
-	}
-	if _, err := gs3ParseChallenge([]byte("2147483648")); err == nil {
-		t.Error("an out-of-range key should fail like Buffer.writeInt32BE")
-	}
-}
-
-func TestGamespy3InheritedItemType(t *testing.T) {
-	if _, err := parseGamespy3([][]byte{[]byte("\x00x_constructor\x00\x00val\x00\x00")}); err == nil {
-		t.Error("an item type found on Object.prototype should fail")
-	}
-	s, err := parseGamespy3([][]byte{[]byte("\x00x_toString\x00\x00\x00")})
-	if err != nil {
-		t.Fatal(err)
-	}
-	if pti := s.raw["playerTeamInfo"].(map[string]any); len(pti) != 0 {
-		t.Errorf("playerTeamInfo = %v", pti)
-	}
-}
-
 // checkJSON fails unless v holds only JSON value types and marshals once
 // NaN and Inf are replaced, as the root package's Number does.
 func checkJSON(t *testing.T, v any) {
@@ -390,37 +361,5 @@ func FuzzBedrock(f *testing.F) {
 		checkJSON(t, s.json("h", 1))
 		res := merge(Options{Host: "h", Port: 1}, nil, nil, s)
 		checkJSON(t, res.Raw)
-	})
-}
-
-// FuzzGamespy3 splits the input on "|" into datagrams and runs them
-// through reassembly and parsing.
-func FuzzGamespy3(f *testing.F) {
-	f.Add([]byte("\x00\x00\x00\x00\x01splitnum\x00\x80\x00hostname\x00x\x00\x00\x01player_\x00\x00a\x00\x00"))
-	f.Add([]byte("\x00\x00\x00\x00\x01splitnum\x00\x81\x00\x01team_t\x00\x05r\x00|\x00\x00\x00\x00\x01splitnum\x00\x00\x00k\x00p1\x00v\x00"))
-	f.Fuzz(func(t *testing.T, in []byte) {
-		asm := &gs3Assembler{packets: map[int][]byte{}}
-		for _, p := range bytes.Split(in, []byte("|")) {
-			r, ok := gs3Header(p, gs3Stat)
-			if !ok {
-				continue
-			}
-			list, err := asm.add(r)
-			if err != nil {
-				return
-			}
-			if list == nil {
-				continue
-			}
-			s, err := parseGamespy3(list)
-			if err != nil {
-				return
-			}
-			checkJSON(t, s.json("h", 1))
-			res := merge(Options{Host: "h", Port: 1}, nil, s, nil)
-			checkJSON(t, res.Raw)
-			return
-		}
-		_, _ = gs3ParseChallenge(in)
 	})
 }
