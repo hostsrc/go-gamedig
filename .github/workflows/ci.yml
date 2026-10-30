@@ -14,6 +14,11 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
         go: ["1.22.x", stable]
+        exclude:
+          # Go 1.22 binaries lack LC_UUID, which current macOS dyld requires;
+          # the minimum version is checked on Linux.
+          - os: macos-latest
+            go: "1.22.x"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
