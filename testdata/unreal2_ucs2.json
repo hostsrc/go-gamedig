@@ -1,0 +1,53 @@
+{
+ "description": "UCS-2 strings: a lone surrogate, a colour code, a trailing NUL, a zero length, an ESC too close to the end to start a colour code, a length-only (non-UCS-2) string read up to its NUL, and a UCS-2 string cut off by the end of the datagram",
+ "args": [
+  "--type=unrealtournament2003",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "7900000000",
+   "responses": [
+    "80000000000900000089ff0031002e0032002e0033002e00340000004d1e00004e1e00008a530000d872001b00ff000000000076003a260000810000864300540046001b000100000000000000080000000200000000000000864800610072"
+   ]
+  },
+  {
+   "request": "7900000001",
+   "responses": [
+    "800000000103616263646500056c6f6e6700000a656d707479206b657900"
+   ]
+  },
+  {
+   "request": "7900000002",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:7757",
+  "map": "",
+  "maxplayers": 8,
+  "name": "S�rv☺",
+  "numplayers": 0,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {
+   "flags": 0,
+   "gametype": "CTF\u001b",
+   "ip": "ÿ1.2.3.4",
+   "mutators": [],
+   "ping": 2,
+   "queryport": 7758,
+   "rules": {
+    "": "empty key",
+    "abcde": "long"
+   },
+   "scoreboard": {},
+   "serverid": 9,
+   "skill": "Ha"
+  },
+  "version": ""
+ }
+}

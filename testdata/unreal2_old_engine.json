@@ -1,0 +1,51 @@
+{
+ "description": "Red Orchestra without the later flags and skill fields, GamePassword True (no password), a rule named __proto__, 'Num trader weapons' empty (not Killing Floor), and no players reply",
+ "args": [
+  "--type=redorchestra",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "7900000000",
+   "responses": [
+    "8000000000030000000a3139322e302e322e31004e1e00004f1e00000a524f205365727665720008524f2d41726164000b524f5465616d47616d650000000000200000003700000001"
+   ]
+  },
+  {
+   "request": "7900000001",
+   "responses": [
+    "80000000010d47616d6550617373776f7264000554727565000a5f5f70726f746f5f5f0009706f6c6c7574656400134e756d2074726164657220776561706f6e73000100"
+   ]
+  },
+  {
+   "request": "7900000002",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:7758",
+  "map": "RO-Arad",
+  "maxplayers": 32,
+  "name": "RO Server",
+  "numplayers": 0,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {
+   "gametype": "ROTeamGame",
+   "ip": "192.0.2.1",
+   "mutators": [],
+   "ping": 55,
+   "queryport": 7759,
+   "rules": {
+    "GamePassword": "True",
+    "Num trader weapons": ""
+   },
+   "scoreboard": {},
+   "serverid": 3
+  },
+  "version": ""
+ }
+}

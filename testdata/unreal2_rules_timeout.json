@@ -1,0 +1,25 @@
+{
+ "description": "info answered, but the required rules request times out",
+ "args": [
+  "--type=devastation",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "7900000000",
+   "responses": [
+    "80000000000100000008312e312e312e3100611e0000621e000004446576000744562d4d61700007445647616d6500000000000800000000000000"
+   ]
+  },
+  {
+   "request": "7900000001",
+   "responses": [
+    "800000000201000000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "error": "Failed all 1 attempts"
+ }
+}

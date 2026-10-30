@@ -1,0 +1,31 @@
+{
+ "description": "a reply that ends after the map: version, password and the player counts are missing",
+ "args": [
+  "--type=gtavcmta"
+ ],
+ "exchanges": [
+  {
+   "request": "73",
+   "responses": [
+    "45594531046d746106323230303303564303444d0a566963652043697479"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:22003",
+  "map": "Vice City",
+  "maxplayers": null,
+  "name": "VC",
+  "numplayers": null,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {
+   "gamename": "mta",
+   "gametype": "DM"
+  },
+  "version": ""
+ }
+}

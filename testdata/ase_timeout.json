@@ -1,0 +1,17 @@
+{
+ "description": "no All-Seeing Eye reply",
+ "args": [
+  "--type=aoe2",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "73",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "error": "Failed all 1 attempts"
+ }
+}

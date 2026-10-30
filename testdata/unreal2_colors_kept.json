@@ -1,0 +1,63 @@
+{
+ "description": "--stripColors=false keeps colour codes and control characters; the trailing NUL is still dropped",
+ "args": [
+  "--type=u2tax",
+  "--socketTimeout=300",
+  "--stripColors=false"
+ ],
+ "exchanges": [
+  {
+   "request": "7900000000",
+   "responses": [
+    "8000000000020000000931302e312e312e3100611e0000621e00000d1bff01015265640720584d50000b584d502d47617264656e008c58004d0050001b00ff00ff00ff00470061006d006500000001000000180000001e000000"
+   ]
+  },
+  {
+   "request": "7900000001",
+   "responses": [
+    "80000000010d436f6c6f721b0102034b65790003017600"
+   ]
+  },
+  {
+   "request": "7900000002",
+   "responses": [
+    "8000000002030000000a1b01ff01477265656e00500000000200000000000000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:7777",
+  "map": "XMP-Garden",
+  "maxplayers": 24,
+  "name": "\u001bÿ\u0001\u0001Red\u0007 XMP",
+  "numplayers": 1,
+  "password": false,
+  "players": [
+   {
+    "name": "\u001b\u0001ÿ\u0001Green",
+    "raw": {
+     "id": 3,
+     "ping": 80,
+     "score": 2,
+     "statsId": 0
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "gametype": "XMP\u001bÿÿÿGame",
+   "ip": "10.1.1.1",
+   "mutators": [],
+   "ping": 30,
+   "queryport": 7778,
+   "rules": {
+    "Color\u001b\u0001\u0002\u0003Key": "\u0001v"
+   },
+   "scoreboard": {},
+   "serverid": 2
+  },
+  "version": ""
+ }
+}
