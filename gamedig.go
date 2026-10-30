@@ -18,8 +18,6 @@ import (
 	"strings"
 	"time"
 	"unicode"
-
-	"github.com/hostsrc/go-gamedig/internal/valve"
 )
 
 // Options select the server and control the query. The zero value of every
@@ -144,18 +142,41 @@ func (e *AttemptsError) Error() string {
 // Unwrap returns the failure of each attempt.
 func (e *AttemptsError) Unwrap() []error { return e.Errors }
 
-type protocolFunc func(ctx context.Context, conn net.Conn, opts Options) (*Result, error)
-
-var protocols = map[string]protocolFunc{
-	"valve":   queryValve(false),
-	"goldsrc": queryValve(true),
+// target is one attempt: a server address and the caller's options.
+type target struct {
+	Host string
+	Port int
+	Opts Options
 }
 
-// defaultPorts are used when neither the caller nor the catalog gives a
-// port, as node-gamedig's protocol classes do.
-var defaultPorts = map[string]int{
-	"valve":   27015,
-	"goldsrc": 27015,
+// Address is host:port, with IPv6 hosts bracketed.
+func (t target) Address() string { return net.JoinHostPort(t.Host, strconv.Itoa(t.Port)) }
+
+// Dial connects to the target; network is "udp" or "tcp".
+func (t target) Dial(ctx context.Context, network string) (net.Conn, error) {
+	var d net.Dialer
+	return d.DialContext(ctx, network, t.Address())
+}
+
+// protocolFunc queries one target. It opens and closes its own
+// connections, so a protocol can use UDP, TCP or both.
+type protocolFunc func(ctx context.Context, t target) (*Result, error)
+
+var (
+	protocols = map[string]protocolFunc{}
+	// defaultPorts are used when neither the caller nor the catalog gives a
+	// port, as node-gamedig's protocol classes do.
+	defaultPorts = map[string]int{}
+)
+
+// registerProtocol adds a protocol under node-gamedig's protocol name. Each
+// protocol registers itself from an init function in its own file
+// (protocol_<name>.go), so adding one doesn't touch this file.
+func registerProtocol(name string, defaultPort int, run protocolFunc) {
+	protocols[name] = run
+	if defaultPort != 0 {
+		defaultPorts[name] = defaultPort
+	}
 }
 
 const maxRetries = 100
@@ -252,14 +273,7 @@ func attempt(ctx context.Context, run protocolFunc, opts Options, port int) (*Re
 	ctx, cancel := context.WithTimeout(ctx, opts.AttemptTimeout)
 	defer cancel()
 
-	var d net.Dialer
-	conn, err := d.DialContext(ctx, "udp", net.JoinHostPort(opts.Host, strconv.Itoa(port)))
-	if err != nil {
-		return nil, err
-	}
-	defer conn.Close()
-
-	res, err := run(ctx, conn, opts)
+	res, err := run(ctx, target{Host: opts.Host, Port: port, Opts: opts})
 	if err != nil {
 		if errors.Is(err, context.DeadlineExceeded) && parent.Err() == nil {
 			return nil, fmt.Errorf("Attempt - Timed out after %s", opts.AttemptTimeout)
@@ -273,68 +287,6 @@ func attempt(ctx context.Context, run protocolFunc, opts Options, port int) (*Re
 	// Many servers pad their name to sort first in server browsers.
 	res.Name = strings.TrimFunc(res.Name, isJSSpace)
 	return res, nil
-}
-
-func queryValve(goldsrcInfo bool) protocolFunc {
-	return func(ctx context.Context, conn net.Conn, opts Options) (*Result, error) {
-		v, err := valve.Query(ctx, conn, valve.Options{
-			GoldSrcInfo:    goldsrcInfo,
-			RequestPlayers: !opts.SkipPlayers,
-			RequestRules:   opts.RequestRules,
-			SocketTimeout:  opts.SocketTimeout,
-			Debugf:         opts.Debugf,
-		})
-		if err != nil {
-			return nil, err
-		}
-		res := &Result{
-			Name:       v.Name,
-			Map:        v.Map,
-			Password:   v.Password,
-			Raw:        jsonRaw(v.Raw),
-			Version:    v.Version,
-			MaxPlayers: v.MaxPlayers,
-			NumPlayers: v.NumPlayers,
-			Players:    valvePlayers(v.Players),
-			Bots:       valvePlayers(v.Bots),
-			Ping:       int(v.RTT.Milliseconds()),
-		}
-		// Like node-gamedig, connect is host:port without IPv6 brackets.
-		if v.GamePort != 0 {
-			res.Connect = opts.Host + ":" + strconv.Itoa(v.GamePort)
-		}
-		return res, nil
-	}
-}
-
-func valvePlayers(in []valve.RawPlayer) []Player {
-	out := make([]Player, 0, len(in))
-	for _, p := range in {
-		out = append(out, Player{Name: p.Name, Raw: map[string]any{"score": int(p.Score), "time": Number(p.Time)}})
-	}
-	return out
-}
-
-// jsonRaw replaces the protocol package's types in raw with JSON value
-// types, so callers can type-assert Raw without importing internals.
-func jsonRaw(raw map[string]any) map[string]any {
-	for k, v := range raw {
-		switch v := v.(type) {
-		case []valve.RawPlayer:
-			list := make([]any, len(v))
-			for i, p := range v {
-				list[i] = map[string]any{"name": p.Name, "score": int(p.Score), "time": Number(p.Time)}
-			}
-			raw[k] = list
-		case valve.Buffer:
-			data := make([]any, len(v))
-			for i, b := range v {
-				data[i] = int(b)
-			}
-			raw[k] = map[string]any{"type": "Buffer", "data": data}
-		}
-	}
-	return raw
 }
 
 // isJSSpace matches the characters JavaScript's String.prototype.trim

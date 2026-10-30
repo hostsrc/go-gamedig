@@ -19,7 +19,19 @@ type scenario struct {
 	Exchanges   []fixture.Exchange
 }
 
+// scenarioSets holds one function per protocol family. Each family adds
+// its own from an init function in scenarios_<family>.go.
+var scenarioSets = []func() []scenario{valveScenarios}
+
 func scenarios() []scenario {
+	var all []scenario
+	for _, set := range scenarioSets {
+		all = append(all, set()...)
+	}
+	return all
+}
+
+func valveScenarios() []scenario {
 	const key1, key2, key3 = 0x11223344, 0xA1B2C3D4, 0x0BADF00D
 
 	infoReq := pkt().header().u8(0x54).str("Source Engine Query").b
