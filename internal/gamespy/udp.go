@@ -31,6 +31,9 @@ type Options struct {
 	// StripColors removes America's Army colour codes, as node-gamedig's
 	// stripColors option (on by default) does.
 	StripColors bool
+	// UTF8 decodes GameSpy 3 strings as UTF-8 rather than Windows-1252, as
+	// node-gamedig's Minecraft protocol asks for.
+	UTF8 bool
 	// SocketTimeout bounds each request/response exchange. Default 2s.
 	SocketTimeout time.Duration
 	// Debugf, when set, receives a trace of every datagram.

@@ -57,8 +57,12 @@ func TestFixtures(t *testing.T) {
 			if !reflect.DeepEqual(gotV, wantV) {
 				t.Errorf("output differs from node-gamedig %s\n got: %s\nwant: %s", f.GamedigVersion, gotJSON, f.Expected)
 			}
+			srv.Close()
 			if u := srv.Unmatched(); len(u) > 0 {
 				t.Errorf("sent %d request(s) node-gamedig did not, first %x", len(u), u[0])
+			}
+			if u := srv.Unused(); len(u) > 0 {
+				t.Errorf("never sent the request of exchange(s) %v, which node-gamedig sent", u)
 			}
 		})
 	}

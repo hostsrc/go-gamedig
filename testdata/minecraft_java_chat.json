@@ -1,0 +1,119 @@
+{
+ "description": "chat-component MOTD: nested extra arrays (reversed in raw like node-gamedig), plain strings and non-string text values",
+ "args": [
+  "--type=minecraft",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "network": "tcp",
+   "request": "0f002f093132372e302e302e310000010100",
+   "port_offsets": [
+    13
+   ],
+   "responses": [
+    "a30300a0037b2276657273696f6e223a7b226e616d65223a22312e32312e31222c2270726f746f636f6c223a3736377d2c22706c6179657273223a7b226d6178223a32302c226f6e6c696e65223a307d2c226465736372697074696f6e223a7b2274657874223a22222c226578747261223a5b7b2274657874223a2248656c6c6f20222c22636f6c6f72223a22676f6c64222c226578747261223a5b7b2274657874223a226e657374656420222c22626f6c64223a747275652c226578747261223a5b7b2274657874223a2264656570227d5d7d2c7b2274657874223a2220776f726c64227d5d7d2c22706c61696e20737472696e67732061726520736b6970706564222c7b227472616e736c617465223a226e6f2e746578742e68657265227d2c7b2274657874223a34327d2c7b2274657874223a307d2c7b2274657874223a5b2261222c6e756c6c2c2262225d7d2c7b2274657874223a7b226f626a223a317d7d2c7b2274657874223a66616c73657d2c7b2274657874223a747275657d2c7b2274657874223a2220c2a778e280a87461696c5c745c7420656e6420c2a7227d5d7d7d"
+   ]
+  },
+  {
+   "request": "fefd090000000100000000",
+   "responses": []
+  },
+  {
+   "request": "01112233445566778800ffff00fefefefefdfdfdfd123456780000000000000000",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "",
+  "maxplayers": 20,
+  "name": "Hello nested deep world42a,,b[object Object]true  tail end §",
+  "numplayers": 0,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {
+   "vanilla": {
+    "bots": [],
+    "connect": "127.0.0.1:PORT",
+    "map": "",
+    "maxplayers": 20,
+    "name": "",
+    "numplayers": 0,
+    "password": false,
+    "players": [],
+    "queryPort": 0,
+    "raw": {
+     "bcc": {},
+     "description": {
+      "extra": [
+       {
+        "text": " §x\u2028tail\t\t end §"
+       },
+       {
+        "text": true
+       },
+       {
+        "text": false
+       },
+       {
+        "text": {
+         "obj": 1
+        }
+       },
+       {
+        "text": [
+         "a",
+         null,
+         "b"
+        ]
+       },
+       {
+        "text": 0
+       },
+       {
+        "text": 42
+       },
+       {
+        "translate": "no.text.here"
+       },
+       "plain strings are skipped",
+       {
+        "color": "gold",
+        "extra": [
+         {
+          "text": " world"
+         },
+         {
+          "bold": true,
+          "extra": [
+           {
+            "text": "deep"
+           }
+          ],
+          "text": "nested "
+         }
+        ],
+        "text": "Hello "
+       }
+      ],
+      "text": ""
+     },
+     "players": {
+      "max": 20,
+      "online": 0
+     },
+     "version": {
+      "name": "1.21.1",
+      "protocol": 767
+     }
+    },
+    "version": ""
+   }
+  },
+  "version": "1.21.1"
+ }
+}

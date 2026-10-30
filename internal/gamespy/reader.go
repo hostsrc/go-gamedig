@@ -10,6 +10,9 @@ import "github.com/hostsrc/go-gamedig/internal/binreader"
 type reader struct {
 	b []byte
 	i int
+	// utf8 decodes strings as UTF-8 instead of Windows-1252, for callers
+	// that set node-gamedig's encoding option to 'utf8' (Minecraft).
+	utf8 bool
 }
 
 func newReader(b []byte) *reader { return &reader{b: b} }
@@ -33,7 +36,7 @@ func (r *reader) uint(n int) uint32 {
 	return v
 }
 
-// string reads a NUL-terminated Windows-1252 string. Without a terminator
+// string reads a NUL-terminated Windows-1252 (or UTF-8) string. Without a terminator
 // it takes the rest of the buffer.
 func (r *reader) string() string {
 	start := max(r.i, 0)
@@ -45,6 +48,9 @@ func (r *reader) string() string {
 		end++
 	}
 	r.i = end + 1
+	if r.utf8 {
+		return binreader.DecodeUTF8(r.b[start:end])
+	}
 	return binreader.DecodeWindows1252(r.b[start:end])
 }
 

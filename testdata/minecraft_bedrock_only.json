@@ -1,0 +1,56 @@
+{
+ "description": "Bedrock server: TCP refused, no query, unconnected pong with every optional field",
+ "args": [
+  "--type=mbe",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "fefd090000000100000000",
+   "responses": []
+  },
+  {
+   "request": "01112233445566778800ffff00fefefefefdfdfdfd123456780000000000000000",
+   "responses": [
+    "1c1122334455667788b7ee3a4a1a2b3c3100ffff00fefefefefdfdfdfd1234567800694d4350453bc2a762446564696361746564202053657276657220c2a7723b3637313b312e32302e38303b333b31303b31333235333836303839323332383933303836353b426564726f636b206c6576656c3b537572766976616c3b313b31393133323b31393133333b"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "Bedrock level",
+  "maxplayers": 10,
+  "name": "Dedicated Server",
+  "numplayers": 3,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {
+   "bedrock": {
+    "bots": [],
+    "connect": "127.0.0.1:PORT",
+    "map": "Bedrock level",
+    "maxplayers": 10,
+    "name": "§bDedicated  Server §r",
+    "numplayers": 3,
+    "password": false,
+    "players": [],
+    "queryPort": 0,
+    "raw": {
+     "edition": "MCPE",
+     "gameMode": "Survival",
+     "ipv4Port": "19132",
+     "ipv6Port": "19133",
+     "mcVersion": "1.20.80",
+     "nintendoOnly": true,
+     "protocolVersion": "671",
+     "serverId": "13253860892328930865"
+    },
+    "version": "1.20.80"
+   }
+  },
+  "version": "1.20.80"
+ }
+}

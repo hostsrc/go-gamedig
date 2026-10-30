@@ -1,0 +1,118 @@
+{
+ "description": "player counts that are a fraction and a string, and player names that aren't strings, which node-gamedig prints as they are",
+ "args": [
+  "--type=minecraft",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "network": "tcp",
+   "request": "0f002f093132372e302e302e310000010100",
+   "port_offsets": [
+    13
+   ],
+   "responses": [
+    "7d007b7b22706c6179657273223a7b226d6178223a223230222c226f6e6c696e65223a322e352c2273616d706c65223a5b7b226e616d65223a34322c226964223a2261227d2c7b226e616d65223a7b2278223a5b315d7d7d2c7b226e616d65223a226f6b227d5d7d2c2276657273696f6e223a7b226e616d65223a377d7d"
+   ]
+  },
+  {
+   "request": "fefd090000000100000000",
+   "responses": []
+  },
+  {
+   "request": "01112233445566778800ffff00fefefefefdfdfdfd123456780000000000000000",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "",
+  "maxplayers": "20",
+  "name": "",
+  "numplayers": 2.5,
+  "password": false,
+  "players": [
+   {
+    "name": 42,
+    "raw": {
+     "id": "a"
+    }
+   },
+   {
+    "name": {
+     "x": [
+      1
+     ]
+    },
+    "raw": {}
+   },
+   {
+    "name": "ok",
+    "raw": {}
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "vanilla": {
+    "bots": [],
+    "connect": "127.0.0.1:PORT",
+    "map": "",
+    "maxplayers": "20",
+    "name": "",
+    "numplayers": 2.5,
+    "password": false,
+    "players": [
+     {
+      "name": 42,
+      "raw": {
+       "id": "a"
+      }
+     },
+     {
+      "name": {
+       "x": [
+        1
+       ]
+      },
+      "raw": {}
+     },
+     {
+      "name": "ok",
+      "raw": {}
+     }
+    ],
+    "queryPort": 0,
+    "raw": {
+     "bcc": {},
+     "players": {
+      "max": "20",
+      "online": 2.5,
+      "sample": [
+       {
+        "id": "a",
+        "name": 42
+       },
+       {
+        "name": {
+         "x": [
+          1
+         ]
+        }
+       },
+       {
+        "name": "ok"
+       }
+      ]
+     },
+     "version": {
+      "name": 7
+     }
+    },
+    "version": ""
+   }
+  },
+  "version": "7"
+ }
+}

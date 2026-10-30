@@ -79,7 +79,7 @@ func TestQueryErrors(t *testing.T) {
 	if _, err := Query(ctx, Options{Type: "nope", Host: "127.0.0.1"}); !errors.Is(err, ErrUnknownGame) || err.Error() != "Invalid game: nope" {
 		t.Errorf("unknown game: %v", err)
 	}
-	if _, err := Query(ctx, Options{Type: "minecraft", Host: "127.0.0.1"}); !errors.Is(err, ErrUnsupported) {
+	if _, err := Query(ctx, Options{Type: "protocol-notimplemented", Host: "127.0.0.1"}); !errors.Is(err, ErrUnsupported) {
 		t.Errorf("unsupported: %v", err)
 	}
 	if _, err := Query(ctx, Options{Type: "counterstrike16"}); !errors.Is(err, ErrNoHost) {
