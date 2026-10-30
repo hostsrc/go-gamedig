@@ -30,21 +30,41 @@ jobs:
       - run: go vet ./...
       - run: go test -race ./...
 
+  # Every fuzz target runs for 30 s. One job per package keeps the wall
+  # time of the slowest (four targets) near two and a half minutes.
   fuzz:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - pkg: ./internal/valve
+            targets: FuzzQuery FuzzParse
+          - pkg: ./internal/quake
+            targets: FuzzQuery FuzzParse FuzzStripColors FuzzJSNumbers
+          - pkg: ./internal/gamespy
+            targets: FuzzQuery1 FuzzQuery2 FuzzQuery3 FuzzParse
+          - pkg: ./internal/ase
+            targets: FuzzQuery FuzzParse
+          - pkg: ./internal/unreal2
+            targets: FuzzQuery FuzzParse
+          - pkg: ./internal/minecraft
+            targets: FuzzVarint FuzzStatusPacket FuzzStatusJSON FuzzBedrock
+          - pkg: ./internal/binreader
+            targets: FuzzDecodeUTF8 FuzzDecodeWindows1252 FuzzDecodeUCS2
+          - pkg: .
+            targets: FuzzQuakeResultJSON
+    name: fuzz ${{ matrix.pkg }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
           go-version: stable
-      - run: go test ./internal/valve -run '^$' -fuzz '^FuzzQuery$' -fuzztime 60s
-      - run: go test ./internal/valve -run '^$' -fuzz '^FuzzParse$' -fuzztime 30s
-      - run: go test ./internal/binreader -run '^$' -fuzz '^FuzzDecodeUTF8$' -fuzztime 30s
-      - run: go test ./internal/minecraft -run '^$' -fuzz '^FuzzStatusPacket$' -fuzztime 60s
-      - run: go test ./internal/minecraft -run '^$' -fuzz '^FuzzStatusJSON$' -fuzztime 30s
-      - run: go test ./internal/minecraft -run '^$' -fuzz '^FuzzGamespy3$' -fuzztime 30s
-      - run: go test ./internal/minecraft -run '^$' -fuzz '^FuzzBedrock$' -fuzztime 20s
-      - run: go test ./internal/minecraft -run '^$' -fuzz '^FuzzVarint$' -fuzztime 10s
+      - name: fuzz
+        run: |
+          for t in ${{ matrix.targets }}; do
+            go test "${{ matrix.pkg }}" -run '^$' -fuzz "^$t\$" -fuzztime 30s
+          done
 
   # Re-records every fixture with node-gamedig and fails if its output or
   # its requests differ from the committed ones.

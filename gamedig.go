@@ -4,9 +4,9 @@
 // shape and JSON values as node-gamedig 5, so it can replace it as a library or,
 // through cmd/gamedig, as a command.
 //
-// The Valve protocol (A2S, 138 of the catalog's games) and Minecraft (Java
-// and Bedrock Edition) are implemented so far; Lookup and Games report the
-// rest as unsupported.
+// Valve (A2S), Minecraft, Quake 1/2/3, GameSpy 1/2/3, All-Seeing Eye and
+// Unreal Engine 2 are implemented, covering 289 of the catalog's 362 games;
+// Lookup and Games report the rest as unsupported.
 package gamedig
 
 import (

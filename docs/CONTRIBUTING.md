@@ -25,10 +25,14 @@ To run the fuzz tests (random input) for a minute:
 go test ./internal/valve -run '^$' -fuzz '^FuzzQuery$' -fuzztime 60s
 go test ./internal/valve -run '^$' -fuzz '^FuzzParse$' -fuzztime 30s
 go test ./internal/binreader -run '^$' -fuzz '^FuzzDecodeUTF8$' -fuzztime 30s
+go test ./internal/minecraft -run '^$' -fuzz '^FuzzStatusPacket$' -fuzztime 60s
 ```
 
-CI runs `gofmt`, `go vet` and `go test -race ./...` on Linux and macOS, the
-fuzz tests above, and a check that the recordings still match node-gamedig.
+Every protocol package has its own `Fuzz...` functions; CI runs each of them
+for 30 seconds.
+
+CI runs `gofmt`, `go vet` and `go test -race ./...` on Linux and macOS, all
+the fuzz tests, and a check that the recordings still match node-gamedig.
 
 ## Record conversations again
 

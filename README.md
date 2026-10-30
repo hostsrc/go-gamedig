@@ -150,14 +150,14 @@ The Go API may still change before version 1.0.
 
 ## Which games work
 
-go-gamedig knows the same list of 362 games as node-gamedig. Today 138 of
-them work: the games that use Valve's server status protocol. These include
-Counter-Strike 1.6, Counter-Strike: Source, Counter-Strike 2, Team
-Fortress 2, Left 4 Dead 2, Garry's Mod, Rust, Valheim, ARK: Survival Evolved
-and Euro Truck Simulator 2.
+go-gamedig knows the same list of 362 games as node-gamedig. Today 289 of
+them work. These include Counter-Strike 1.6, Counter-Strike: Source,
+Counter-Strike 2, Team Fortress 2, Garry's Mod, Rust, ARK: Survival Evolved,
+Euro Truck Simulator 2, Minecraft (Java and Bedrock Edition), Quake 3, the
+Call of Duty and Battlefield series, and Unreal Tournament.
 
-Other games, such as Minecraft or Quake 3, are not supported yet. Asking for
-one gives an error that says so. More are being added.
+The other games are not supported yet. Asking for one gives an error that
+says so. More are being added.
 
 To see the current list, run:
 
