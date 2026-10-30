@@ -1,0 +1,97 @@
+{
+ "description": "UT2004: colour codes and control characters stripped, rules over two datagrams with mutators, a repeated key, an empty pair and an inverted GamePassword, UTComp version, a datagram of another type ignored, and players, bots and team scores over two datagrams with UCS-2 (extra 0x01 byte), Windows-1252 and undefined Windows-1252 bytes",
+ "args": [
+  "--type=unrealtournament2004",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "7900000000",
+   "responses": [
+    "8000000000070000000a3132372e302e302e3100611e0000621e00001c201bff01015265641b01ff0120075465616d1bff53657276657220000a444d2d52616e6b696e000c7844656174684d61746368000300000010000000000000001d0000000e1b0101014d617374657266756c00"
+   ]
+  },
+  {
+   "request": "7900000001",
+   "responses": [
+    "800000000201000000",
+    "80000000010a41646d696e4e616d65000e41646d696e201bffff01426f6200084d757461746f72000c4d7574496e73746147696200086d757461746f72000b4d757442696748656164000b5365727665724d6f6465000a646564696361746564000d47616d6550617373776f7264000646616c7365000f5554436f6d705f56657273696f6e000b5554436f6d707631376100",
+    "80000000010b5365727665724d6f646500077075626c6963000e4d6178537065637461746f727300023200010001000d5472616e736c6f6361746f7200055472756500"
+   ]
+  },
+  {
+   "request": "7900000002",
+   "responses": [
+    "80000000020000000009526564205465616d00000000002a00000000000000000000000a426c7565205465616d0000000000fdffffff000000000b0000008e01dc006e00ef006300f8006400e90020001b00ff008000800021000000300000000f000000e9030000",
+    "80000000020c0000000b436166e92080818d909d0078000000feffffff000000000d0000000a426f7420476f72676500000000000700000000000000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [
+   {
+    "name": "Bot Gorge",
+    "raw": {
+     "id": 13,
+     "ping": 0,
+     "score": 7,
+     "statsId": 0
+    }
+   }
+  ],
+  "connect": "127.0.0.1:7777",
+  "map": "DM-Rankin",
+  "maxplayers": 16,
+  "name": "Red Teamrver",
+  "numplayers": 3,
+  "password": true,
+  "players": [
+   {
+    "name": "Ünïcødé !",
+    "raw": {
+     "id": 11,
+     "ping": 48,
+     "score": 15,
+     "statsId": 1001
+    }
+   },
+   {
+    "name": "Café €����",
+    "raw": {
+     "id": 12,
+     "ping": 120,
+     "score": -2,
+     "statsId": 0
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "flags": 29,
+   "gametype": "xDeathMatch",
+   "ip": "127.0.0.1",
+   "mutators": [
+    "MutInstaGib",
+    "MutBigHead"
+   ],
+   "ping": 0,
+   "queryport": 7778,
+   "rules": {
+    "AdminName": "Admin Bob",
+    "GamePassword": "False",
+    "MaxSpectators": "2",
+    "ServerMode": "dedicated,public",
+    "Translocator": "True",
+    "UTComp_Version": "UTCompv17a"
+   },
+   "scoreboard": {
+    "Blue Team": -3,
+    "Red Team": 42
+   },
+   "serverid": 7,
+   "skill": "Masterful"
+  },
+  "version": "UTCompv17a"
+ }
+}

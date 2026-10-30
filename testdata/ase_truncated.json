@@ -1,0 +1,33 @@
+{
+ "description": "Call of Juarez reply with zero-length string bytes, a hex game port, and a rule value cut off by the end of the datagram",
+ "args": [
+  "--type=coj"
+ ],
+ "exchanges": [
+  {
+   "request": "73",
+   "responses": [
+    "4559453104636f6a07307835444330074a756172657a0005486f706500010232033132056d6f646506706f737365056d6f7464056c6f6e"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:24000",
+  "map": "Hope",
+  "maxplayers": 12,
+  "name": "Juarez",
+  "numplayers": 2,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {
+   "gamename": "coj",
+   "gametype": "",
+   "mode": "posse",
+   "motd": "lon"
+  },
+  "version": ""
+ }
+}

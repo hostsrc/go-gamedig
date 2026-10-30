@@ -1,0 +1,54 @@
+{
+ "description": "Killing Floor detected by 'Server Version' 1065, with the info reply cut short so the extra fields read as zero",
+ "args": [
+  "--type=killingfloor",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "7900000000",
+   "responses": [
+    "8000000000010000000931302e302e302e36001b1e00001c1e0000084b46203130363500084b462d4661726d000b4b4647616d655479706500000000000600000009000000"
+   ]
+  },
+  {
+   "request": "7900000001",
+   "responses": [
+    "80000000010f5365727665722056657273696f6e00053130363500"
+   ]
+  },
+  {
+   "request": "7900000002",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:7707",
+  "map": "KF-Farm",
+  "maxplayers": 6,
+  "name": "KF 1065",
+  "numplayers": 0,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {
+   "flags": 0,
+   "gametype": "KFGameType",
+   "ip": "10.0.0.6",
+   "mutators": [],
+   "ping": 0,
+   "queryport": 7708,
+   "rules": {
+    "Server Version": "1065"
+   },
+   "scoreboard": {},
+   "serverid": 1,
+   "skillLevel": "",
+   "wavecurrent": 9,
+   "wavetotal": 0
+  },
+  "version": ""
+ }
+}

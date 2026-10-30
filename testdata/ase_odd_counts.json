@@ -1,0 +1,42 @@
+{
+ "description": "player counts parseInt can't read or reads beyond 2^53, and a player flagged with every field but sent with none",
+ "args": [
+  "--type=xpandrally"
+ ],
+ "exchanges": [
+  {
+   "request": "73",
+   "responses": [
+    "455945310378720632383031350652616c6c7905726163650744657365727404312e300230056d616e7919313233343536373839303132333435363738393031323334013f"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:28015",
+  "map": "Desert",
+  "maxplayers": 1.2345678901234569e+23,
+  "name": "Rally",
+  "numplayers": null,
+  "password": false,
+  "players": [
+   {
+    "name": "",
+    "raw": {
+     "ping": null,
+     "score": null,
+     "skin": "",
+     "team": "",
+     "time": null
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "gamename": "xr",
+   "gametype": "race"
+  },
+  "version": "1.0"
+ }
+}

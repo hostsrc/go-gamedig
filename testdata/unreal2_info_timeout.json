@@ -1,0 +1,17 @@
+{
+ "description": "no reply to the info request",
+ "args": [
+  "--type=unrealtournament2004",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "7900000000",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "error": "Failed all 1 attempts"
+ }
+}

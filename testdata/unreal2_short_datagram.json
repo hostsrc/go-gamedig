@@ -1,0 +1,50 @@
+{
+ "description": "a datagram too short to carry a type counts as an empty info reply, as in node-gamedig, leaving an empty server",
+ "args": [
+  "--type=protocol-unreal2",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "7900000000",
+   "responses": [
+    "800000"
+   ]
+  },
+  {
+   "request": "7900000001",
+   "responses": [
+    "8000000001"
+   ]
+  },
+  {
+   "request": "7900000002",
+   "responses": [
+    "8000000002"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "",
+  "maxplayers": 0,
+  "name": "",
+  "numplayers": 0,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {
+   "gametype": "",
+   "ip": "",
+   "mutators": [],
+   "ping": 0,
+   "queryport": 0,
+   "rules": {},
+   "scoreboard": {},
+   "serverid": 0
+  },
+  "version": ""
+ }
+}

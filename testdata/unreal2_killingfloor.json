@@ -1,0 +1,69 @@
+{
+ "description": "Killing Floor (KillingFloorMut mutator): wave, ping, flags and skill level after the info fields; players are requested even with --requestPlayers=false",
+ "args": [
+  "--type=killingfloor",
+  "--socketTimeout=300",
+  "--requestPlayers=false"
+ ],
+ "exchanges": [
+  {
+   "request": "7900000000",
+   "responses": [
+    "8000000000010000000931302e302e302e35001b1e00001c1e00000a4b4620536572766572000e4b462d42696f746963734c6162000b4b4647616d6554797065000100000006000000040000000a0000001900000010000000054861726400"
+   ]
+  },
+  {
+   "request": "7900000001",
+   "responses": [
+    "8000000001084d757461746f7200104b696c6c696e67466c6f6f724d7574000d47616d6550617373776f726400055472756500"
+   ]
+  },
+  {
+   "request": "7900000002",
+   "responses": [
+    "800000000205000000095375727669766f72003c0000009600000000000000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:7707",
+  "map": "KF-BioticsLab",
+  "maxplayers": 6,
+  "name": "KF Server",
+  "numplayers": 1,
+  "password": false,
+  "players": [
+   {
+    "name": "Survivor",
+    "raw": {
+     "id": 5,
+     "ping": 60,
+     "score": 150,
+     "statsId": 0
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "flags": 16,
+   "gametype": "KFGameType",
+   "ip": "10.0.0.5",
+   "mutators": [
+    "KillingFloorMut"
+   ],
+   "ping": 25,
+   "queryport": 7708,
+   "rules": {
+    "GamePassword": "True"
+   },
+   "scoreboard": {},
+   "serverid": 1,
+   "skillLevel": "Hard",
+   "wavecurrent": 4,
+   "wavetotal": 10
+  },
+  "version": ""
+ }
+}

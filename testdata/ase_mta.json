@@ -1,0 +1,70 @@
+{
+ "description": "MTA:SA All-Seeing Eye reply after a non-EYE1 datagram: rules (one shadowing gamename, one named __proto__), players with every field flag, missing fields, UTF-8 and invalid UTF-8 names, and numeric fields parseInt reads as NaN, hex and negative",
+ "args": [
+  "--type=gtasamta"
+ ],
+ "exchanges": [
+  {
+   "request": "73",
+   "responses": [
+    "455945326e6f742074686973206f6e65",
+    "45594531046d74610632323030331b2020506164646564204d544120c3bc6ec3af20736572766572200946726565726f616d0c53616e20416e647265617304312e36023002340333320967616d656e616d65076d74612d736108776561746865720673756e6e790a5f5f70726f746f5f5f0278047665720b312e362e302d392e3232013f06416c6963650647726f766503636a033132033435043330300908c328626164e282032d37380773636f72653f07202030783146032d30070a5a6fc3ab20f09f8eae010100"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:22003",
+  "map": "San Andreas",
+  "maxplayers": 32,
+  "name": "Padded MTA ünï server",
+  "numplayers": 4,
+  "password": false,
+  "players": [
+   {
+    "name": "Alice",
+    "raw": {
+     "ping": 45,
+     "score": 12,
+     "skin": "cj",
+     "team": "Grove",
+     "time": 300
+    }
+   },
+   {
+    "name": "�(bad�",
+    "raw": {
+     "score": -7
+    }
+   },
+   {
+    "name": "",
+    "raw": {
+     "ping": 31,
+     "score": null,
+     "time": 0
+    }
+   },
+   {
+    "name": "Zoë 🎮",
+    "raw": {
+     "skin": "",
+     "team": ""
+    }
+   },
+   {
+    "name": "",
+    "raw": {}
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "gamename": "mta-sa",
+   "gametype": "Freeroam",
+   "ver": "1.6.0-9.22",
+   "weather": "sunny"
+  },
+  "version": "1.6"
+ }
+}
