@@ -48,6 +48,9 @@ type Options struct {
 	SkipPlayers bool
 	// RequestRules also requests server rules (cvars).
 	RequestRules bool
+	// KeepColors keeps Quake 3 color codes (^1, ^Xrrggbb) in names and
+	// cvars, like node-gamedig's stripColors=false.
+	KeepColors bool
 	// Debugf, when set, receives a trace of the query.
 	Debugf func(format string, args ...any)
 }
@@ -117,6 +120,10 @@ type Result struct {
 	Connect    string         `json:"connect"`
 	// Ping is the shortest round trip in milliseconds.
 	Ping int `json:"ping"`
+
+	// nodeJSON replaces top-level JSON values whose node-gamedig type
+	// differs from the field's Go type (see result_json.go).
+	nodeJSON map[string]any
 }
 
 // AttemptsError reports that every attempt failed. Errors holds the

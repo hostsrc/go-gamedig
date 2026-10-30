@@ -1,0 +1,63 @@
+{
+ "description": "Quake 3 Arena with --stripColors=false: color codes stay in the name, cvars and players",
+ "args": [
+  "--type=q3a",
+  "--stripColors=false"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff67657473746174757300",
+   "responses": [
+    "ffffffff737461747573526573706f6e73650a5c73765f686f73746e616d655c5e33515e31335e3741205e586666303030304172656e615c6d61706e616d655c7133646d31375c73765f6d6178636c69656e74735c31365c675f67616d65747970655c305c667261676c696d69745c32305c74696d656c696d69745c305c76657273696f6e5c696f713320312e33365f4749545f5e3162657461206c696e75782d7838365f36345c675f6e656564706173735c315c67616d656e616d655c6261736571335c73765f70726976617465436c69656e74735c300a323020343520225e315361726765220a37203020225e34416e61726b69220a2d312031323020225e586130623063305669736f72205e37287370656329220a"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [
+   {
+    "name": "^4Anarki",
+    "raw": {
+     "frags": 7,
+     "ping": 0
+    }
+   }
+  ],
+  "connect": "127.0.0.1:PORT",
+  "map": "q3dm17",
+  "maxplayers": "16",
+  "name": "^3Q^13^7A ^Xff0000Arena",
+  "numplayers": 3,
+  "password": "1",
+  "players": [
+   {
+    "name": "^1Sarge",
+    "raw": {
+     "frags": 20,
+     "ping": 45
+    }
+   },
+   {
+    "name": "^Xa0b0c0Visor ^7(spec)",
+    "raw": {
+     "frags": -1,
+     "ping": 120
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "fraglimit": "20",
+   "g_gametype": "0",
+   "g_needpass": "1",
+   "gamename": "baseq3",
+   "mapname": "q3dm17",
+   "sv_hostname": "^3Q^13^7A ^Xff0000Arena",
+   "sv_maxclients": "16",
+   "sv_privateClients": "0",
+   "timelimit": "0",
+   "version": "ioq3 1.36_GIT_^1beta linux-x86_64"
+  },
+  "version": "ioq3 1.36_GIT_^1beta linux-x86_64"
+ }
+}

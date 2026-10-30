@@ -1,0 +1,53 @@
+{
+ "description": "both hostname and sv_hostname, maxclients and sv_maxclients, and iv with clients: numplayers becomes the clients string and the stripped version cvar wins over iv",
+ "args": [
+  "--type=protocol-quake3"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff67657473746174757300",
+   "responses": [
+    "ffffffff737461747573526573706f6e73650a5c73765f686f73746e616d655c69676e6f7265645c686f73746e616d655c5e355265616c205e376e616d655c73765f6d6178636c69656e74735c31305c6d6178636c69656e74735c31325c69765c5e3169762d312e305c636c69656e74735c30375c76657273696f6e5c5e32765e33325c675f6e656564706173735c747275650a3120313020226f6e65220a322030202274776f220a"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [
+   {
+    "name": "two",
+    "raw": {
+     "frags": 2,
+     "ping": 0
+    }
+   }
+  ],
+  "connect": "127.0.0.1:PORT",
+  "map": "",
+  "maxplayers": "12",
+  "name": "Real name",
+  "numplayers": "07",
+  "password": "true",
+  "players": [
+   {
+    "name": "one",
+    "raw": {
+     "frags": 1,
+     "ping": 10
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "clients": "07",
+   "g_needpass": "true",
+   "hostname": "Real name",
+   "iv": "iv-1.0",
+   "maxclients": "12",
+   "sv_hostname": "ignored",
+   "sv_maxclients": "10",
+   "version": "v2"
+  },
+  "version": "v2"
+ }
+}

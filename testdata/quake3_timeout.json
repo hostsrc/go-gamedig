@@ -1,0 +1,17 @@
+{
+ "description": "no reply at all",
+ "args": [
+  "--type=q3a",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff67657473746174757300",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "error": "Failed all 1 attempts"
+ }
+}

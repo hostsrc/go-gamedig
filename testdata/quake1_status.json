@@ -1,0 +1,73 @@
+{
+ "description": "QuakeWorld 'n' reply without a newline after the type: *version, map cvar (not mapname), full player lines, an empty skin and a short line",
+ "args": [
+  "--type=quake"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff73746174757300",
+   "responses": [
+    "ffffffff6e5c6d6178636c69656e74735c385c2a76657273696f6e5c322e34305c2a70726f67735c3636365c686f73746e616d655c515720e9205e314475656c5c6d61705c646d345c667261676c696d69745c33305c76657273696f6e5c69676e6f7265640a3132203235203334302035302022506c61796572204f6e652220226261736522203420340a313320302031322030202263616d70657222202222203020300a3134203320350a"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [
+   {
+    "name": "camper",
+    "raw": {
+     "color1": 0,
+     "color2": 0,
+     "id": 13,
+     "ping": 0,
+     "score": 0,
+     "skin": "",
+     "time": 12
+    }
+   },
+   {
+    "name": "",
+    "raw": {
+     "color1": null,
+     "color2": null,
+     "id": 14,
+     "ping": null,
+     "score": 3,
+     "time": 5
+    }
+   }
+  ],
+  "connect": "127.0.0.1:PORT",
+  "map": "",
+  "maxplayers": "8",
+  "name": "QW é ^1Duel",
+  "numplayers": 3,
+  "password": false,
+  "players": [
+   {
+    "name": "Player One",
+    "raw": {
+     "color1": 4,
+     "color2": 4,
+     "id": 12,
+     "ping": 50,
+     "score": 25,
+     "skin": "base",
+     "time": 340
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "*progs": "666",
+   "*version": "2.40",
+   "fraglimit": "30",
+   "hostname": "QW é ^1Duel",
+   "map": "dm4",
+   "maxclients": "8",
+   "version": "ignored"
+  },
+  "version": "2.40"
+ }
+}

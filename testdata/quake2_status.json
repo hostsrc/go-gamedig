@@ -1,0 +1,64 @@
+{
+ "description": "Quake 2 'print' reply: hostname and maxclients, Latin-1 name, colors not stripped, players with and without an address, a bot",
+ "args": [
+  "--type=quake2"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff73746174757300",
+   "responses": [
+    "ffffffff7072696e740a5c6368656174735c305c64656174686d617463685c315c646d666c6167735c31365c667261676c696d69745c305c67616d656e616d655c6261736571325c686f73746e616d655c5e31513220e9207365727665725c6d61706e616d655c7132646d315c6d6178636c69656e74735c31365c70726f746f636f6c5c33345c74696d656c696d69745c305c76657273696f6e5c523151322062383031322069333836204c696e75780a31322034352022506c61796572220a3020302022426f74220a332031323020224f74686572206f6e652220223230332e302e3131332e373a3237393031220a"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [
+   {
+    "name": "Bot",
+    "raw": {
+     "frags": 0,
+     "ping": 0
+    }
+   }
+  ],
+  "connect": "127.0.0.1:PORT",
+  "map": "q2dm1",
+  "maxplayers": "16",
+  "name": "^1Q2 é server",
+  "numplayers": 3,
+  "password": false,
+  "players": [
+   {
+    "name": "Player",
+    "raw": {
+     "frags": 12,
+     "ping": 45
+    }
+   },
+   {
+    "name": "Other one",
+    "raw": {
+     "address": "203.0.113.7:27901",
+     "frags": 3,
+     "ping": 120
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "cheats": "0",
+   "deathmatch": "1",
+   "dmflags": "16",
+   "fraglimit": "0",
+   "gamename": "baseq2",
+   "hostname": "^1Q2 é server",
+   "mapname": "q2dm1",
+   "maxclients": "16",
+   "protocol": "34",
+   "timelimit": "0",
+   "version": "R1Q2 b8012 i386 Linux"
+  },
+  "version": "R1Q2 b8012 i386 Linux"
+ }
+}

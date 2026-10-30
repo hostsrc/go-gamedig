@@ -1,0 +1,36 @@
+{
+ "description": "Wolfenstein: Enemy Territory: a datagram without the 0xFF prefix, one with the wrong type, one with a longer type, then the reply (no players, no trailing newline) and a late duplicate",
+ "args": [
+  "--type=wet"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff67657473746174757300",
+   "responses": [
+    "737461747573526573706f6e73650a5c73765f686f73746e616d655c6e6f70650a",
+    "ffffffff7072696e740a5c73765f686f73746e616d655c77726f6e6720747970650a",
+    "ffffffff737461747573526573706f6e7365580a5c73765f686f73746e616d655c77726f6e6720746f6f0a",
+    "ffffffff737461747573526573706f6e73650a5c73765f686f73746e616d655c5e314554205e375365727665725c6d61706e616d655c6f617369735c73765f6d6178636c69656e74735c3332",
+    "ffffffff737461747573526573706f6e73650a5c73765f686f73746e616d655c6c617465206475706c6963617465"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "oasis",
+  "maxplayers": "32",
+  "name": "ET Server",
+  "numplayers": 0,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {
+   "mapname": "oasis",
+   "sv_hostname": "ET Server",
+   "sv_maxclients": "32"
+  },
+  "version": ""
+ }
+}

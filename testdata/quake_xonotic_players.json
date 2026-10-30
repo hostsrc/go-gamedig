@@ -1,0 +1,164 @@
+{
+ "description": "Xonotic: numeric names (after stripping) with an address become the team and the address the name; JavaScript isNaN edge cases; bots are left alone",
+ "args": [
+  "--type=xonotic"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff67657473746174757300",
+   "responses": [
+    "ffffffff737461747573526573706f6e73650a5c73765f686f73746e616d655c5e78463030586f6e5e376f7469635c6d61706e616d655c736f6c617269756d5c73765f6d6178636c69656e74735c32345c76657273696f6e5c302e382e360a352035302022312220225e315265616c5e374e616d65220a352035302022222022456d707479220a352035302022496e66696e697479222022496e66220a3520353020222d307831302220224e6567486578220a35203530202230783130222022486578220a352035302022306231303122202242696e220a352035302022a0313220222022537061636564220a352035302022316535222022457870220a3520353020222e3522202246726163220a352035302022352e222022446f74220a352035302022315f30222022536570220a35203530202231326162632220224e6f74220a3520353020225e3133222022436f6c6f726564220a35203530202234220a302030202232222022426f7441646472220a"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [
+   {
+    "name": "2",
+    "raw": {
+     "address": "BotAddr",
+     "frags": 0,
+     "ping": 0
+    }
+   }
+  ],
+  "connect": "127.0.0.1:PORT",
+  "map": "solarium",
+  "maxplayers": "24",
+  "name": "F00Xonotic",
+  "numplayers": 15,
+  "password": false,
+  "players": [
+   {
+    "name": "^1Real^7Name",
+    "raw": {
+     "address": "^1Real^7Name",
+     "frags": 5,
+     "ping": 50,
+     "team": "1"
+    }
+   },
+   {
+    "name": "Empty",
+    "raw": {
+     "address": "Empty",
+     "frags": 5,
+     "ping": 50,
+     "team": ""
+    }
+   },
+   {
+    "name": "Inf",
+    "raw": {
+     "address": "Inf",
+     "frags": 5,
+     "ping": 50,
+     "team": "Infinity"
+    }
+   },
+   {
+    "name": "-0x10",
+    "raw": {
+     "address": "NegHex",
+     "frags": 5,
+     "ping": 50
+    }
+   },
+   {
+    "name": "Hex",
+    "raw": {
+     "address": "Hex",
+     "frags": 5,
+     "ping": 50,
+     "team": "0x10"
+    }
+   },
+   {
+    "name": "Bin",
+    "raw": {
+     "address": "Bin",
+     "frags": 5,
+     "ping": 50,
+     "team": "0b101"
+    }
+   },
+   {
+    "name": "Spaced",
+    "raw": {
+     "address": "Spaced",
+     "frags": 5,
+     "ping": 50,
+     "team": " 12 "
+    }
+   },
+   {
+    "name": "Exp",
+    "raw": {
+     "address": "Exp",
+     "frags": 5,
+     "ping": 50,
+     "team": "1e5"
+    }
+   },
+   {
+    "name": "Frac",
+    "raw": {
+     "address": "Frac",
+     "frags": 5,
+     "ping": 50,
+     "team": ".5"
+    }
+   },
+   {
+    "name": "Dot",
+    "raw": {
+     "address": "Dot",
+     "frags": 5,
+     "ping": 50,
+     "team": "5."
+    }
+   },
+   {
+    "name": "1_0",
+    "raw": {
+     "address": "Sep",
+     "frags": 5,
+     "ping": 50
+    }
+   },
+   {
+    "name": "12abc",
+    "raw": {
+     "address": "Not",
+     "frags": 5,
+     "ping": 50
+    }
+   },
+   {
+    "name": "Colored",
+    "raw": {
+     "address": "Colored",
+     "frags": 5,
+     "ping": 50,
+     "team": "3"
+    }
+   },
+   {
+    "name": "4",
+    "raw": {
+     "frags": 5,
+     "ping": 50
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "mapname": "solarium",
+   "sv_hostname": "F00Xonotic",
+   "sv_maxclients": "24",
+   "version": "0.8.6"
+  },
+  "version": "0.8.6"
+ }
+}

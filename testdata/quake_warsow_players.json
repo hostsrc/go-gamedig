@@ -1,0 +1,59 @@
+{
+ "description": "Warsow: the team field ends up in raw.address (warsow.js's team copy reads the wrong object), names stripped",
+ "args": [
+  "--type=warsow"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff67657473746174757300",
+   "responses": [
+    "ffffffff737461747573526573706f6e73650a5c73765f686f73746e616d655c5e397761725e37736f775c6d61706e616d655c776361315c73765f6d6178636c69656e74735c31365c67616d65747970655c63615c76657273696f6e5c322e31207838365f36340a313020353020225e324e616d652220310a33203020225e33626f742220320a30203730202273706563220a"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [
+   {
+    "name": "bot",
+    "raw": {
+     "address": "2",
+     "frags": 3,
+     "ping": 0
+    }
+   }
+  ],
+  "connect": "127.0.0.1:PORT",
+  "map": "wca1",
+  "maxplayers": "16",
+  "name": "warsow",
+  "numplayers": 3,
+  "password": false,
+  "players": [
+   {
+    "name": "Name",
+    "raw": {
+     "address": "1",
+     "frags": 10,
+     "ping": 50
+    }
+   },
+   {
+    "name": "spec",
+    "raw": {
+     "frags": 0,
+     "ping": 70
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "gametype": "ca",
+   "mapname": "wca1",
+   "sv_hostname": "warsow",
+   "sv_maxclients": "16",
+   "version": "2.1 x86_64"
+  },
+  "version": "2.1 x86_64"
+ }
+}
