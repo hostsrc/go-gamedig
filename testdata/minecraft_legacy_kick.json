@@ -1,0 +1,31 @@
+{
+ "description": "pre-1.7 server answering with a legacy 0xFF kick packet, which node-gamedig doesn't parse: the query fails",
+ "args": [
+  "--type=minecraft",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "network": "tcp",
+   "request": "0f002f093132372e302e302e310000010100",
+   "port_offsets": [
+    13
+   ],
+   "responses": [
+    "ff002300a700310000003700380000"
+   ]
+  },
+  {
+   "request": "fefd090000000100000000",
+   "responses": []
+  },
+  {
+   "request": "01112233445566778800ffff00fefefefefdfdfdfd123456780000000000000000",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "error": "Failed all 1 attempts"
+ }
+}

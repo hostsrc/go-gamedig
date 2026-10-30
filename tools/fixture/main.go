@@ -73,6 +73,9 @@ func synth(args []string) error {
 		if u := srv.Unmatched(); len(u) > 0 {
 			return fmt.Errorf("%s: node-gamedig sent %d unexpected request(s), first %x", sc.Name, len(u), u[0])
 		}
+		if u := srv.Unused(); len(u) > 0 {
+			return fmt.Errorf("%s: node-gamedig never sent the request of exchange(s) %v", sc.Name, u)
+		}
 		f := fixture.Fixture{
 			Description:    sc.Description,
 			Args:           sc.Args,

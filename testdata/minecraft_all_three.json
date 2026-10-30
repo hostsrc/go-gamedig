@@ -1,0 +1,175 @@
+{
+ "description": "Java, GameSpy 3 (split reply out of order, negative challenge) and Bedrock all answer; Bedrock wins name, map and version",
+ "args": [
+  "--type=minecraft",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "network": "tcp",
+   "request": "0f002f093132372e302e302e310000010100",
+   "port_offsets": [
+    13
+   ],
+   "responses": [
+    "bd0100ba017b2276657273696f6e223a7b226e616d65223a2256656c6f6369747920332e332e30222c2270726f746f636f6c223a3736377d2c22706c6179657273223a7b226d6178223a3530302c226f6e6c696e65223a31322c2273616d706c65223a5b7b226e616d65223a226a6176616f6e65222c226964223a2261616161616161612d616161612d616161612d616161612d616161616161616161616161227d5d7d2c226465736372697074696f6e223a224a617661204d4f5444227d"
+   ]
+  },
+  {
+   "request": "fefd090000000100000000",
+   "responses": [
+    "09000000012d343200"
+   ]
+  },
+  {
+   "request": "fefd0000000001ffffffd6ffffff01",
+   "responses": [
+    "000000000173706c69746e756d00810001706c617965725f00006f6e650074776f000073636f72655f000031007800007465616d5f7400007265640000",
+    "000000000173706c69746e756d000000686f73746e616d6500475333206e616d65006e756d706c61796572730034006d6178706c61796572730034300067616d6576657200312e32300070617373776f72640031006d61706e616d650067736d61700000"
+   ]
+  },
+  {
+   "request": "01112233445566778800ffff00fefefefefdfdfdfd123456780000000000000000",
+   "responses": [
+    "1c1122334455667788b7ee3a4a1a2b3c3100ffff00fefefefefdfdfdfd1234567800694d4350453bc2a762446564696361746564202053657276657220c2a7723b3637313b312e32302e38303b333b31303b31333235333836303839323332383933303836353b426564726f636b206c6576656c3b537572766976616c3b313b31393133323b31393133333b"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "Bedrock level",
+  "maxplayers": 10,
+  "name": "Dedicated Server",
+  "numplayers": 3,
+  "password": false,
+  "players": [
+   {
+    "name": "one",
+    "raw": {
+     "score": 1
+    }
+   },
+   {
+    "name": "two",
+    "raw": {
+     "score": null
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "bedrock": {
+    "bots": [],
+    "connect": "127.0.0.1:PORT",
+    "map": "Bedrock level",
+    "maxplayers": 10,
+    "name": "§bDedicated  Server §r",
+    "numplayers": 3,
+    "password": false,
+    "players": [],
+    "queryPort": 0,
+    "raw": {
+     "edition": "MCPE",
+     "gameMode": "Survival",
+     "ipv4Port": "19132",
+     "ipv6Port": "19133",
+     "mcVersion": "1.20.80",
+     "nintendoOnly": true,
+     "protocolVersion": "671",
+     "serverId": "13253860892328930865"
+    },
+    "version": "1.20.80"
+   },
+   "gamespy": {
+    "bots": [],
+    "connect": "127.0.0.1:PORT",
+    "map": "gsmap",
+    "maxplayers": 40,
+    "name": "GS3 name",
+    "numplayers": 4,
+    "password": true,
+    "players": [
+     {
+      "name": "one",
+      "raw": {
+       "score": 1
+      }
+     },
+     {
+      "name": "two",
+      "raw": {
+       "score": null
+      }
+     }
+    ],
+    "queryPort": 0,
+    "raw": {
+     "gamever": "1.20",
+     "hostname": "GS3 name",
+     "mapname": "gsmap",
+     "maxplayers": "40",
+     "numplayers": "4",
+     "password": "1",
+     "playerTeamInfo": {
+      "": [
+       {
+        "player": "one",
+        "score": "1"
+       },
+       {
+        "player": "two",
+        "score": "x"
+       }
+      ],
+      "t": [
+       {
+        "team": "red"
+       }
+      ]
+     }
+    },
+    "version": "1.20"
+   },
+   "vanilla": {
+    "bots": [],
+    "connect": "127.0.0.1:PORT",
+    "map": "",
+    "maxplayers": 500,
+    "name": "",
+    "numplayers": 12,
+    "password": false,
+    "players": [
+     {
+      "name": "javaone",
+      "raw": {
+       "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+      }
+     }
+    ],
+    "queryPort": 0,
+    "raw": {
+     "bcc": {},
+     "description": "Java MOTD",
+     "players": {
+      "max": 500,
+      "online": 12,
+      "sample": [
+       {
+        "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+        "name": "javaone"
+       }
+      ]
+     },
+     "version": {
+      "name": "Velocity 3.3.0",
+      "protocol": 767
+     }
+    },
+    "version": ""
+   }
+  },
+  "version": "1.20.80"
+ }
+}

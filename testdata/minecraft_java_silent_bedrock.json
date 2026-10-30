@@ -1,0 +1,60 @@
+{
+ "description": "TCP accepted but the status ping never answered, while Bedrock answers a minimal pong with unparsable player counts",
+ "args": [
+  "--type=minecraft",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "network": "tcp",
+   "request": "0f002f093132372e302e302e310000010100",
+   "port_offsets": [
+    13
+   ],
+   "responses": []
+  },
+  {
+   "request": "fefd090000000100000000",
+   "responses": []
+  },
+  {
+   "request": "01112233445566778800ffff00fefefefefdfdfdfd123456780000000000000000",
+   "responses": [
+    "006a756e6b",
+    "1c1122334455667788b7ee3a4a1a2b3c3100ffff00fefefefefdfdfdfd12345678001f4d4350453b53686f72743b3339303b312e31342e36303b6162633b30783146"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "",
+  "maxplayers": 31,
+  "name": "Short",
+  "numplayers": 0,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {
+   "bedrock": {
+    "bots": [],
+    "connect": "127.0.0.1:PORT",
+    "map": "",
+    "maxplayers": 31,
+    "name": "Short",
+    "numplayers": null,
+    "password": false,
+    "players": [],
+    "queryPort": 0,
+    "raw": {
+     "edition": "MCPE",
+     "mcVersion": "1.14.60",
+     "protocolVersion": "390"
+    },
+    "version": "1.14.60"
+   }
+  },
+  "version": "1.14.60"
+ }
+}

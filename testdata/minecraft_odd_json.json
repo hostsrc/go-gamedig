@@ -1,0 +1,114 @@
+{
+ "description": "status JSON with a null description, a string players sample, version without a name, odd numbers and invalid UTF-8",
+ "args": [
+  "--type=minecraft",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "network": "tcp",
+   "request": "0f002f093132372e302e302e310000010100",
+   "port_offsets": [
+    13
+   ],
+   "responses": [
+    "ae0200ab027b2276657273696f6e223a22312e382e39222c22706c6179657273223a7b226f6e6c696e65223a372c2273616d706c65223a226162f09f8eae227d2c226465736372697074696f6e223a6e756c6c2c226e756d62657273223a5b31653430302c2d31653430302c2d302c312e302c302e312c316532312c3132333435363738393031323334353637383930313233343536373839302c35652d3332342c2d322e35652d385d2c226e6573746564223a7b225f5f70726f746f5f5f223a7b2278223a317d2c22656d707479223a7b7d2c226c697374223a5b5b5d2c5b5b5d5d2c7b7d5d7d2c2274657874223a227461625c7468657265205c75643833635c7564666165205c7564383030206c6f6e65222c22726177223a2262616420fffe207574663820e28220637574227d"
+   ]
+  },
+  {
+   "request": "fefd090000000100000000",
+   "responses": []
+  },
+  {
+   "request": "01112233445566778800ffff00fefefefefdfdfdfd123456780000000000000000",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "",
+  "maxplayers": 0,
+  "name": "",
+  "numplayers": 7,
+  "password": false,
+  "players": [
+   {
+    "name": "",
+    "raw": {}
+   },
+   {
+    "name": "",
+    "raw": {}
+   },
+   {
+    "name": "",
+    "raw": {}
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "vanilla": {
+    "bots": [],
+    "connect": "127.0.0.1:PORT",
+    "map": "",
+    "name": "",
+    "numplayers": 7,
+    "password": false,
+    "players": [
+     {
+      "name": "",
+      "raw": {}
+     },
+     {
+      "name": "",
+      "raw": {}
+     },
+     {
+      "name": "",
+      "raw": {}
+     }
+    ],
+    "queryPort": 0,
+    "raw": {
+     "bcc": {},
+     "description": null,
+     "nested": {
+      "__proto__": {
+       "x": 1
+      },
+      "empty": {},
+      "list": [
+       [],
+       [
+        []
+       ],
+       {}
+      ]
+     },
+     "numbers": [
+      null,
+      null,
+      0,
+      1,
+      0.1,
+      1e+21,
+      1.2345678901234568e+29,
+      5e-324,
+      -2.5e-8
+     ],
+     "players": {
+      "online": 7,
+      "sample": "ab🎮"
+     },
+     "raw": "bad �� utf8 � cut",
+     "text": "tab\there 🎮 � lone",
+     "version": "1.8.9"
+    },
+    "version": ""
+   }
+  },
+  "version": "undefined"
+ }
+}

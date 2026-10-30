@@ -1,0 +1,121 @@
+{
+ "description": "modded server: forgeData and legacy modinfo are kept in raw",
+ "args": [
+  "--type=minecraft",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "network": "tcp",
+   "request": "0f002f093132372e302e302e310000010100",
+   "port_offsets": [
+    13
+   ],
+   "responses": [
+    "a70400a4047b2276657273696f6e223a7b226e616d65223a22312e32302e31222c2270726f746f636f6c223a3736337d2c22706c6179657273223a7b226d6178223a35302c226f6e6c696e65223a312c2273616d706c65223a5b7b226e616d65223a226d6f64646572222c226964223a2231313131313131312d323232322d333333332d343434342d353535353535353535353535227d5d7d2c226465736372697074696f6e223a7b2274657874223a22416c6c20746865204d6f64732039227d2c22666f72676544617461223a7b226368616e6e656c73223a5b7b22726573223a22666f7267653a746965725f736f7274696e67222c2276657273696f6e223a22312e30222c227265717569726564223a66616c73657d5d2c226d6f6473223a5b7b226d6f644964223a22666f726765222c226d6f646d61726b6572223a2234372e322e30227d2c7b226d6f644964223a226a6569222c226d6f646d61726b6572223a2231352e322e302e3237227d5d2c22666d6c4e6574776f726b56657273696f6e223a332c227472756e6361746564223a66616c73652c2264223a22c8b35c75303030305c7530303031227d2c226d6f64696e666f223a7b2274797065223a22464d4c222c226d6f644c697374223a5b7b226d6f646964223a226d696e656372616674222c2276657273696f6e223a22312e32302e31227d5d7d2c2270726576656e7473436861745265706f727473223a747275652c2269734d6f64646564223a747275657d"
+   ]
+  },
+  {
+   "request": "fefd090000000100000000",
+   "responses": []
+  },
+  {
+   "request": "01112233445566778800ffff00fefefefefdfdfdfd123456780000000000000000",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "",
+  "maxplayers": 50,
+  "name": "All the Mods 9",
+  "numplayers": 1,
+  "password": false,
+  "players": [
+   {
+    "name": "modder",
+    "raw": {
+     "id": "11111111-2222-3333-4444-555555555555"
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "vanilla": {
+    "bots": [],
+    "connect": "127.0.0.1:PORT",
+    "map": "",
+    "maxplayers": 50,
+    "name": "",
+    "numplayers": 1,
+    "password": false,
+    "players": [
+     {
+      "name": "modder",
+      "raw": {
+       "id": "11111111-2222-3333-4444-555555555555"
+      }
+     }
+    ],
+    "queryPort": 0,
+    "raw": {
+     "bcc": {},
+     "description": {
+      "text": "All the Mods 9"
+     },
+     "forgeData": {
+      "channels": [
+       {
+        "required": false,
+        "res": "forge:tier_sorting",
+        "version": "1.0"
+       }
+      ],
+      "d": "ȳ\u0000\u0001",
+      "fmlNetworkVersion": 3,
+      "mods": [
+       {
+        "modId": "forge",
+        "modmarker": "47.2.0"
+       },
+       {
+        "modId": "jei",
+        "modmarker": "15.2.0.27"
+       }
+      ],
+      "truncated": false
+     },
+     "isModded": true,
+     "modinfo": {
+      "modList": [
+       {
+        "modid": "minecraft",
+        "version": "1.20.1"
+       }
+      ],
+      "type": "FML"
+     },
+     "players": {
+      "max": 50,
+      "online": 1,
+      "sample": [
+       {
+        "id": "11111111-2222-3333-4444-555555555555",
+        "name": "modder"
+       }
+      ]
+     },
+     "preventsChatReports": true,
+     "version": {
+      "name": "1.20.1",
+      "protocol": 763
+     }
+    },
+    "version": ""
+   }
+  },
+  "version": "1.20.1"
+ }
+}

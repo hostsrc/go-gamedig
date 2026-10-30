@@ -1,0 +1,171 @@
+{
+ "description": "Java server with enable-query: GameSpy 3 name and players override the status ping",
+ "args": [
+  "--type=minecraft",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "network": "tcp",
+   "request": "0f002f093132372e302e302e310000010100",
+   "port_offsets": [
+    13
+   ],
+   "responses": [
+    "88070085077b2276657273696f6e223a7b226e616d65223a22506170657220312e32302e34222c2270726f746f636f6c223a3736357d2c22706c6179657273223a7b226d6178223a3130302c226f6e6c696e65223a332c2273616d706c65223a5b7b226e616d65223a224e6f746368222c226964223a2230363961373966342d343465392d343732362d613562652d666361393065333861616635227d2c7b226e616d65223a226a65625f222c226964223a2238353363383065662d336333372d343966642d616134392d393338623637346164616536227d2c7b226e616d65223a22c2a737616e6f6e796d6f7573222c226964223a6e756c6c7d2c7b226964223a2230303030303030302d303030302d303030302d303030302d303030303030303030303030227d5d7d2c226465736372697074696f6e223a222020c2a76141202020c2a76c4d696e656372616674c2a7725c6e205365727665722020222c2266617669636f6e223a22646174613a696d6167652f706e673b6261736536342c6956424f5277304b47676f67626d393049484a6c5957787365534268494842755a797767596e563049477876626d63675a5735766457646f49485276494731686448526c636942346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548683465486834654868346548673d222c22656e666f7263657353656375726543686174223a747275652c22707265766965777343686174223a66616c73657d"
+   ]
+  },
+  {
+   "request": "fefd090000000100000000",
+   "responses": [
+    "09000000013935313333303700"
+   ]
+  },
+  {
+   "request": "fefd00000000010091295bffffff01",
+   "responses": [
+    "000000000173706c69746e756d008000686f73746e616d6500c2a73651756572792020c2a76c4d4f54440067616d657479706500534d500067616d655f6964004d494e4543524146540076657273696f6e00312e32302e3400706c7567696e73005061706572206f6e20312e32302e343a20457373656e7469616c7320322e3230006d617000776f726c64006e756d706c61796572730032006d6178706c617965727300323000686f7374706f727400323535363500686f73746970003132372e302e302e31000001706c617965725f0000616c69636500c3a96d696c6520f09f8eae0000"
+   ]
+  },
+  {
+   "request": "01112233445566778800ffff00fefefefefdfdfdfd123456780000000000000000",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "",
+  "maxplayers": 20,
+  "name": "Query MOTD",
+  "numplayers": 2,
+  "password": false,
+  "players": [
+   {
+    "name": "alice",
+    "raw": {}
+   },
+   {
+    "name": "émile 🎮",
+    "raw": {}
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "gamespy": {
+    "bots": [],
+    "connect": "127.0.0.1:25565",
+    "map": "",
+    "maxplayers": 20,
+    "name": "§6Query  §lMOTD",
+    "numplayers": 2,
+    "password": false,
+    "players": [
+     {
+      "name": "alice",
+      "raw": {}
+     },
+     {
+      "name": "émile 🎮",
+      "raw": {}
+     }
+    ],
+    "queryPort": 0,
+    "raw": {
+     "game_id": "MINECRAFT",
+     "gametype": "SMP",
+     "hostip": "127.0.0.1",
+     "hostname": "§6Query  §lMOTD",
+     "hostport": "25565",
+     "map": "world",
+     "maxplayers": "20",
+     "numplayers": "2",
+     "playerTeamInfo": {
+      "": [
+       {
+        "player": "alice"
+       },
+       {
+        "player": "émile 🎮"
+       }
+      ]
+     },
+     "plugins": "Paper on 1.20.4: Essentials 2.20",
+     "version": "1.20.4"
+    },
+    "version": ""
+   },
+   "vanilla": {
+    "bots": [],
+    "connect": "127.0.0.1:PORT",
+    "map": "",
+    "maxplayers": 100,
+    "name": "",
+    "numplayers": 3,
+    "password": false,
+    "players": [
+     {
+      "name": "Notch",
+      "raw": {
+       "id": "069a79f4-44e9-4726-a5be-fca90e38aaf5"
+      }
+     },
+     {
+      "name": "jeb_",
+      "raw": {
+       "id": "853c80ef-3c37-49fd-aa49-938b674adae6"
+      }
+     },
+     {
+      "name": "§7anonymous",
+      "raw": {
+       "id": null
+      }
+     },
+     {
+      "name": "",
+      "raw": {
+       "id": "00000000-0000-0000-0000-000000000000"
+      }
+     }
+    ],
+    "queryPort": 0,
+    "raw": {
+     "bcc": {},
+     "description": "  §aA   §lMinecraft§r\n Server  ",
+     "enforcesSecureChat": true,
+     "favicon": "data:image/png;base64,iVBORw0KGgogbm90IHJlYWxseSBhIHBuZywgYnV0IGxvbmcgZW5vdWdoIHRvIG1hdHRlciB4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHg=",
+     "players": {
+      "max": 100,
+      "online": 3,
+      "sample": [
+       {
+        "id": "069a79f4-44e9-4726-a5be-fca90e38aaf5",
+        "name": "Notch"
+       },
+       {
+        "id": "853c80ef-3c37-49fd-aa49-938b674adae6",
+        "name": "jeb_"
+       },
+       {
+        "id": null,
+        "name": "§7anonymous"
+       },
+       {
+        "id": "00000000-0000-0000-0000-000000000000"
+       }
+      ]
+     },
+     "previewsChat": false,
+     "version": {
+      "name": "Paper 1.20.4",
+      "protocol": 765
+     }
+    },
+    "version": ""
+   }
+  },
+  "version": "Paper 1.20.4"
+ }
+}

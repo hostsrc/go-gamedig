@@ -1,0 +1,88 @@
+{
+ "description": "Bedrock pong whose status length is wrong fails that sub-query; Java still answers",
+ "args": [
+  "--type=minecraft",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "network": "tcp",
+   "request": "0f002f093132372e302e302e310000010100",
+   "port_offsets": [
+    13
+   ],
+   "responses": [
+    "bd0100ba017b2276657273696f6e223a7b226e616d65223a2256656c6f6369747920332e332e30222c2270726f746f636f6c223a3736377d2c22706c6179657273223a7b226d6178223a3530302c226f6e6c696e65223a31322c2273616d706c65223a5b7b226e616d65223a226a6176616f6e65222c226964223a2261616161616161612d616161612d616161612d616161612d616161616161616161616161227d5d7d2c226465736372697074696f6e223a224a617661204d4f5444227d"
+   ]
+  },
+  {
+   "request": "fefd090000000100000000",
+   "responses": []
+  },
+  {
+   "request": "01112233445566778800ffff00fefefefefdfdfdfd123456780000000000000000",
+   "responses": [
+    "1c1122334455667788b7ee3a4a1a2b3c3100ffff00fefefefefdfdfdfd12345678006a4d4350453bc2a762446564696361746564202053657276657220c2a7723b3637313b312e32302e38303b333b31303b31333235333836303839323332383933303836353b426564726f636b206c6576656c3b537572766976616c3b313b31393133323b31393133333b"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "",
+  "maxplayers": 500,
+  "name": "Java MOTD",
+  "numplayers": 12,
+  "password": false,
+  "players": [
+   {
+    "name": "javaone",
+    "raw": {
+     "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "vanilla": {
+    "bots": [],
+    "connect": "127.0.0.1:PORT",
+    "map": "",
+    "maxplayers": 500,
+    "name": "",
+    "numplayers": 12,
+    "password": false,
+    "players": [
+     {
+      "name": "javaone",
+      "raw": {
+       "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+      }
+     }
+    ],
+    "queryPort": 0,
+    "raw": {
+     "bcc": {},
+     "description": "Java MOTD",
+     "players": {
+      "max": 500,
+      "online": 12,
+      "sample": [
+       {
+        "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+        "name": "javaone"
+       }
+      ]
+     },
+     "version": {
+      "name": "Velocity 3.3.0",
+      "protocol": 767
+     }
+    },
+    "version": ""
+   }
+  },
+  "version": "Velocity 3.3.0"
+ }
+}
