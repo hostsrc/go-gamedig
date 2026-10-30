@@ -1,0 +1,130 @@
+{
+ "description": "pre-2013 GoldSrc 'details' reply (0x6D) with mod info, 'players' and raw 'rules'",
+ "args": [
+  "--type=counterstrike15",
+  "--requestRules"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff64657461696c73",
+   "responses": [
+    "ffffffff6d3132372e302e302e313a3237303135004c65676163790064655f617a7465630063737472696b6500436f756e7465722d537472696b650004142f646c0101687474703a2f2f6d6f642e6578616d706c6500687474703a2f2f646c2e6578616d706c6500000f000000009ef70a0001"
+   ]
+  },
+  {
+   "request": "ffffffff706c6179657273",
+   "responses": [
+    "ffffffff4401006f6c642074696d657200050000000080bb44"
+   ]
+  },
+  {
+   "request": "ffffffff72756c6573",
+   "responses": [
+    "ffffffff45030073765f61610076616c756520410073765f62610076616c756520420073765f63610076616c7565204300"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "de_aztec",
+  "maxplayers": 20,
+  "name": "Legacy",
+  "numplayers": 4,
+  "password": true,
+  "players": [
+   {
+    "name": "old timer",
+    "raw": {
+     "score": 5,
+     "time": 1500
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "address": "127.0.0.1:27015",
+   "environment": "l",
+   "folder": "cstrike",
+   "game": "Counter-Strike",
+   "ismod": 1,
+   "listentype": "d",
+   "moddll": 1,
+   "moddownload": "http://dl.example",
+   "modlink": "http://mod.example",
+   "modsize": 184000000,
+   "modtype": 0,
+   "modversion": 15,
+   "players": [
+    {
+     "name": "old timer",
+     "score": 5,
+     "time": 1500
+    }
+   ],
+   "protocol": 47,
+   "rules": {
+    "value A": "sv_ba",
+    "value B": "sv_ca",
+    "value C": "",
+    "����E\u0003": "sv_aa"
+   },
+   "rulesBytes": {
+    "data": [
+     255,
+     255,
+     255,
+     255,
+     69,
+     3,
+     0,
+     115,
+     118,
+     95,
+     97,
+     97,
+     0,
+     118,
+     97,
+     108,
+     117,
+     101,
+     32,
+     65,
+     0,
+     115,
+     118,
+     95,
+     98,
+     97,
+     0,
+     118,
+     97,
+     108,
+     117,
+     101,
+     32,
+     66,
+     0,
+     115,
+     118,
+     95,
+     99,
+     97,
+     0,
+     118,
+     97,
+     108,
+     117,
+     101,
+     32,
+     67,
+     0
+    ],
+    "type": "Buffer"
+   }
+  },
+  "version": ""
+ }
+}

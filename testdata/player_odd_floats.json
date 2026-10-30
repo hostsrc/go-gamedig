@@ -1,0 +1,138 @@
+{
+ "description": "player times that are NaN, infinite or negative zero, mixed with normal ones",
+ "args": [
+  "--type=counterstrike2"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff54536f7572636520456e67696e6520517565727900",
+   "responses": [
+    "ffffffff4911202050616464656420c3bc6ec3af20e282ac206e616d65090064655f647573743200637300436f756e7465722d537472696b65203200da02030a01646c0001312e34302e302e3000f1886900000000010040018c69474f5456007365637572652c636f6d706574697469766500da02000000000000"
+   ]
+  },
+  {
+   "request": "ffffffff55ffffffff",
+   "responses": [
+    "ffffffff4407006e6f726d616c00010000000000f041016e616e00020000000000c07f02696e6600030000000000807f036e6567696e660004000000000080ff046e65677a65726f0005000000000000800574696e79000600000095bfd63306687567650007000000e6b1617f"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [
+   {
+    "name": "inf",
+    "raw": {
+     "score": 3,
+     "time": null
+    }
+   }
+  ],
+  "connect": "127.0.0.1:27016",
+  "map": "de_dust2",
+  "maxplayers": 10,
+  "name": "Padded ünï € name",
+  "numplayers": 3,
+  "password": false,
+  "players": [
+   {
+    "name": "huge",
+    "raw": {
+     "score": 7,
+     "time": 3.0000000054977558e+38
+    }
+   },
+   {
+    "name": "tiny",
+    "raw": {
+     "score": 6,
+     "time": 1.0000000116860974e-7
+    }
+   },
+   {
+    "name": "negzero",
+    "raw": {
+     "score": 5,
+     "time": 0
+    }
+   },
+   {
+    "name": "neginf",
+    "raw": {
+     "score": 4,
+     "time": null
+    }
+   },
+   {
+    "name": "nan",
+    "raw": {
+     "score": 2,
+     "time": null
+    }
+   },
+   {
+    "name": "normal",
+    "raw": {
+     "score": 1,
+     "time": 30
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "appId": 730,
+   "environment": "l",
+   "folder": "cs",
+   "game": "Counter-Strike 2",
+   "listentype": "d",
+   "numbots": 1,
+   "players": [
+    {
+     "name": "normal",
+     "score": 1,
+     "time": 30
+    },
+    {
+     "name": "nan",
+     "score": 2,
+     "time": null
+    },
+    {
+     "name": "inf",
+     "score": 3,
+     "time": null
+    },
+    {
+     "name": "neginf",
+     "score": 4,
+     "time": null
+    },
+    {
+     "name": "negzero",
+     "score": 5,
+     "time": 0
+    },
+    {
+     "name": "tiny",
+     "score": 6,
+     "time": 1.0000000116860974e-7
+    },
+    {
+     "name": "huge",
+     "score": 7,
+     "time": 3.0000000054977558e+38
+    }
+   ],
+   "protocol": 17,
+   "secure": 1,
+   "sourcetvname": "GOTV",
+   "sourcetvport": 27020,
+   "steamid": "90071996842377216",
+   "tags": [
+    "secure",
+    "competitive"
+   ]
+  },
+  "version": "1.40.0.0"
+ }
+}

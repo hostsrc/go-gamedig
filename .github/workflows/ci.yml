@@ -1,0 +1,56 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        go: ["1.22.x", stable]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+      - name: gofmt
+        run: test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
+      - run: go vet ./...
+      - run: go test -race ./...
+
+  fuzz:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - run: go test ./internal/valve -run '^$' -fuzz '^FuzzQuery$' -fuzztime 60s
+      - run: go test ./internal/valve -run '^$' -fuzz '^FuzzParse$' -fuzztime 30s
+      - run: go test ./internal/binreader -run '^$' -fuzz '^FuzzDecodeUTF8$' -fuzztime 30s
+
+  # Re-records every fixture with node-gamedig and fails if its output or
+  # its requests differ from the committed ones.
+  parity:
+    runs-on: ubuntu-latest
+    env:
+      GAMEDIG_VERSION: 5.3.3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g gamedig@${GAMEDIG_VERSION}
+      - run: go run ./tools/fixture synth -gamedig-version ${GAMEDIG_VERSION} -out testdata
+      - name: fixtures unchanged
+        run: git diff --exit-code -- testdata

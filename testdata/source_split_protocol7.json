@@ -1,0 +1,95 @@
+{
+ "description": "CS:Source protocol 7 split reply without the packet size field",
+ "args": [
+  "--type=css"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff54536f7572636520456e67696e6520517565727900",
+   "responses": [
+    "ffffffff49074353530063735f6f66666963650063737472696b6500436f756e7465722d537472696b653a20536f7572636500f00003180064770001312e302e302e333400808769"
+   ]
+  },
+  {
+   "request": "ffffffff55ffffffff",
+   "responses": [
+    "feffffff050000000200ffffffff4404006f6e650001000000000020410174776f00020000000000a04102746872656500030000000000f041036120",
+    "feffffff0500000002016e616d65206c6f6e6720656e6f75676820746f206e6565642061207365636f6e64207061636b6574000400000000002042"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:27015",
+  "map": "cs_office",
+  "maxplayers": 24,
+  "name": "CSS",
+  "numplayers": 3,
+  "password": false,
+  "players": [
+   {
+    "name": "a name long enough to need a second packet",
+    "raw": {
+     "score": 4,
+     "time": 40
+    }
+   },
+   {
+    "name": "three",
+    "raw": {
+     "score": 3,
+     "time": 30
+    }
+   },
+   {
+    "name": "two",
+    "raw": {
+     "score": 2,
+     "time": 20
+    }
+   },
+   {
+    "name": "one",
+    "raw": {
+     "score": 1,
+     "time": 10
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "appId": 240,
+   "environment": "w",
+   "folder": "cstrike",
+   "game": "Counter-Strike: Source",
+   "listentype": "d",
+   "numbots": 0,
+   "players": [
+    {
+     "name": "one",
+     "score": 1,
+     "time": 10
+    },
+    {
+     "name": "two",
+     "score": 2,
+     "time": 20
+    },
+    {
+     "name": "three",
+     "score": 3,
+     "time": 30
+    },
+    {
+     "name": "a name long enough to need a second packet",
+     "score": 4,
+     "time": 40
+    }
+   ],
+   "protocol": 7,
+   "secure": 1
+  },
+  "version": "1.0.0.34"
+ }
+}

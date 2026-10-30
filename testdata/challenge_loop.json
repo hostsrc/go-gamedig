@@ -1,0 +1,30 @@
+{
+ "description": "a server that keeps issuing new challenge keys",
+ "args": [
+  "--type=counterstrike2"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff54536f7572636520456e67696e6520517565727900",
+   "responses": [
+    "ffffffff4144332211"
+   ]
+  },
+  {
+   "request": "ffffffff54536f7572636520456e67696e652051756572790044332211",
+   "responses": [
+    "ffffffff41d4c3b2a1"
+   ]
+  },
+  {
+   "request": "ffffffff54536f7572636520456e67696e6520517565727900d4c3b2a1",
+   "responses": [
+    "ffffffff410df0ad0b"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "error": "Failed all 1 attempts"
+ }
+}

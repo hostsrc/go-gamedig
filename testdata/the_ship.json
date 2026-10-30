@@ -1,0 +1,42 @@
+{
+ "description": "The Ship (app 2400) adds mode, witnesses and duration to A2S_INFO",
+ "args": [
+  "--type=theship",
+  "--requestPlayers=false"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff54536f7572636520456e67696e6520517565727900",
+   "responses": [
+    "ffffffff49075368697000626174617669657200736869700054686520536869700060090210006477000001030a312e302e302e340000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "batavier",
+  "maxplayers": 16,
+  "name": "Ship",
+  "numplayers": 2,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {
+   "appId": 2400,
+   "environment": "w",
+   "folder": "ship",
+   "game": "The Ship",
+   "listentype": "d",
+   "numbots": 0,
+   "players": [],
+   "protocol": 7,
+   "secure": 0,
+   "shipduration": 10,
+   "shipmode": 1,
+   "shipwitnesses": 3
+  },
+  "version": "1.0.0.4"
+ }
+}

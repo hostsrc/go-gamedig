@@ -1,0 +1,64 @@
+{
+ "description": "Rust reports player counts in mp/cp tags",
+ "args": [
+  "--type=rust"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff54536f7572636520456e67696e6520517565727900",
+   "responses": [
+    "ffffffff4911527573740050726f6365647572616c204d617000727573740052757374004ada000000646c00013235303100216d703130302c637034322c62697765656b6c792c7632353031004ada030000000000"
+   ]
+  },
+  {
+   "request": "ffffffff55ffffffff",
+   "responses": [
+    "ffffffff44010072757374616365616e000000000000009b42"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "Procedural Map",
+  "maxplayers": 100,
+  "name": "Rust",
+  "numplayers": 42,
+  "password": false,
+  "players": [
+   {
+    "name": "rustacean",
+    "raw": {
+     "score": 0,
+     "time": 77.5
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "appId": 252490,
+   "environment": "l",
+   "folder": "rust",
+   "game": "Rust",
+   "listentype": "d",
+   "numbots": 0,
+   "players": [
+    {
+     "name": "rustacean",
+     "score": 0,
+     "time": 77.5
+    }
+   ],
+   "protocol": 17,
+   "secure": 1,
+   "tags": [
+    "mp100",
+    "cp42",
+    "biweekly",
+    "v2501"
+   ]
+  },
+  "version": "2501"
+ }
+}

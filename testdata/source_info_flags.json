@@ -1,0 +1,96 @@
+{
+ "description": "CS2 A2S_INFO with every extra-data flag, a padded name, a players challenge and the 'Max Players' filter",
+ "args": [
+  "--type=counterstrike2"
+ ],
+ "exchanges": [
+  {
+   "request": "ffffffff54536f7572636520456e67696e6520517565727900",
+   "responses": [
+    "ffffffff4911202050616464656420c3bc6ec3af20e282ac206e616d65090064655f647573743200637300436f756e7465722d537472696b65203200da02030a01646c0001312e34302e302e3000f1886900000000010040018c69474f5456007365637572652c636f6d706574697469766500da02000000000000"
+   ]
+  },
+  {
+   "request": "ffffffff55ffffffff",
+   "responses": [
+    "ffffffff4144332211"
+   ]
+  },
+  {
+   "request": "ffffffff5544332211",
+   "responses": [
+    "ffffffff440400616c696365000c00000000c0ac43014d617820506c617965727300000000000000000002626f6200fdffffffcdcccc3d03424f54204b757274000000000000589a44"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [
+   {
+    "name": "BOT Kurt",
+    "raw": {
+     "score": 0,
+     "time": 1234.75
+    }
+   }
+  ],
+  "connect": "127.0.0.1:27016",
+  "map": "de_dust2",
+  "maxplayers": 10,
+  "name": "Padded ünï € name",
+  "numplayers": 3,
+  "password": false,
+  "players": [
+   {
+    "name": "alice",
+    "raw": {
+     "score": 12,
+     "time": 345.5
+    }
+   },
+   {
+    "name": "bob",
+    "raw": {
+     "score": -3,
+     "time": 0.10000000149011612
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "appId": 730,
+   "environment": "l",
+   "folder": "cs",
+   "game": "Counter-Strike 2",
+   "listentype": "d",
+   "numbots": 1,
+   "players": [
+    {
+     "name": "alice",
+     "score": 12,
+     "time": 345.5
+    },
+    {
+     "name": "bob",
+     "score": -3,
+     "time": 0.10000000149011612
+    },
+    {
+     "name": "BOT Kurt",
+     "score": 0,
+     "time": 1234.75
+    }
+   ],
+   "protocol": 17,
+   "secure": 1,
+   "sourcetvname": "GOTV",
+   "sourcetvport": 27020,
+   "steamid": "90071996842377216",
+   "tags": [
+    "secure",
+    "competitive"
+   ]
+  },
+  "version": "1.40.0.0"
+ }
+}
