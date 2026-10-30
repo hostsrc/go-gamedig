@@ -1,0 +1,23 @@
+{
+ "description": "info answered but the player request never is, which fails the query",
+ "args": [
+  "--type=halo",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "fefd0000000001ff0000",
+   "responses": [
+    "0000000001686f73746e616d650048616c6f006e756d706c617965727300300000"
+   ]
+  },
+  {
+   "request": "fefd000000000100ff00",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "error": "Failed all 1 attempts"
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "description": "America's Army with --stripColors=false keeps the colour codes",
+ "args": [
+  "--type=americasarmy2",
+  "--stripColors=false"
+ ],
+ "exchanges": [
+  {
+   "request": "fefd0000000001ff0000",
+   "responses": [
+    "0000000001686f73746e616d65001bff40405b41415d20536572766572010067616d656e616d650061726d7967616d65006d61706e616d65001b414243427269646765006e756d706c617965727300310000"
+   ]
+  },
+  {
+   "request": "fefd000000000100ff00",
+   "responses": [
+    "00000000010001706c617965725f00001b808080536e6970657200"
+   ]
+  },
+  {
+   "request": "fefd00000000010000ff",
+   "responses": [
+    "00000000010000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "\u001bABCBridge",
+  "maxplayers": 0,
+  "name": "\u001bÿ@@[AA] Server\u0001",
+  "numplayers": 1,
+  "password": false,
+  "players": [
+   {
+    "name": "\u001b€€€Sniper",
+    "raw": {}
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "gamename": "armygame",
+   "hostname": "\u001bÿ@@[AA] Server\u0001",
+   "mapname": "\u001bABCBridge",
+   "numplayers": "1",
+   "teams": []
+  },
+  "version": ""
+ }
+}

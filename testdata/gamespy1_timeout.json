@@ -1,0 +1,17 @@
+{
+ "description": "no reply at all",
+ "args": [
+  "--type=mohaa",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "5c7374617475735c787365727665727175657279",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "error": "Failed all 1 attempts"
+ }
+}

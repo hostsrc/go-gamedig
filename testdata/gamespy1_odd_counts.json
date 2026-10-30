@@ -1,0 +1,39 @@
+{
+ "description": "Unreal: fractional maxplayers and numplayers (which keeps only the first player) and a negative game port, printed as node-gamedig prints JavaScript numbers",
+ "args": [
+  "--type=unreal"
+ ],
+ "exchanges": [
+  {
+   "request": "5c7374617475735c787365727665727175657279",
+   "responses": [
+    "5c686f73746e616d655c4f64645c6d6178706c61796572735c31322e355c6e756d706c61796572735c312e355c686f7374706f72745c2d355c706c617965725f305c66697273745c706c617965725f315c7365636f6e645c717565727969645c332e315c66696e616c5c"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:-5",
+  "map": "",
+  "maxplayers": 12.5,
+  "name": "Odd",
+  "numplayers": 1,
+  "password": false,
+  "players": [
+   {
+    "name": "first",
+    "raw": {}
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "hostname": "Odd",
+   "hostport": -5,
+   "maxplayers": 12.5,
+   "numplayers": 1.5,
+   "teams": {}
+  },
+  "version": "undefined"
+ }
+}

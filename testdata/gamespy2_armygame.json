@@ -1,0 +1,69 @@
+{
+ "description": "America's Army: replies with the wrong header or ping ID are ignored, Unreal 2 colour codes are stripped (not from gamever or teams), and the player count byte is missing",
+ "args": [
+  "--type=americasarmy"
+ ],
+ "exchanges": [
+  {
+   "request": "fefd0000000001ff0000",
+   "responses": [
+    "00000000027800",
+    "01000000017900",
+    "0000000001686f73746e616d65001bff40405b41415d201b0102034f6666696369616c01201b0a31320067616d656e616d650061726d7967616d650067616d6576657200322e382e351b102030006d61706e616d65001b414243427269646765006e756d706c61796572730032006d6178706c61796572730032360070617373776f7264005472756500746f7572001b112200686f7374706f7274003000"
+   ]
+  },
+  {
+   "request": "fefd000000000100ff00",
+   "responses": [
+    "000000000100706c617965725f0073636f72655f0070696e675f00686f6e6f725f00001b808080536e69706572050038003830003432005472756e6361746564002037"
+   ]
+  },
+  {
+   "request": "fefd00000000010000ff",
+   "responses": [
+    "00000000010000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "Bridge",
+  "maxplayers": 26,
+  "name": "[AA] Official \u001b12",
+  "numplayers": 2,
+  "password": true,
+  "players": [
+   {
+    "name": "Sniper",
+    "raw": {
+     "honor": "42",
+     "ping": 80,
+     "score": 8
+    }
+   },
+   {
+    "name": "Truncated",
+    "raw": {
+     "honor": "",
+     "score": 7
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "gamename": "armygame",
+   "gamever": "2.8.5",
+   "hostname": "[AA] Official \u001b12",
+   "hostport": "0",
+   "mapname": "Bridge",
+   "maxplayers": "26",
+   "numplayers": "2",
+   "password": "True",
+   "teams": [],
+   "tour": "\u001b\""
+  },
+  "version": "2.8.5\u001b\u0010 0"
+ }
+}

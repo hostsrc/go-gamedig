@@ -1,0 +1,24 @@
+{
+ "description": "an item type named like an Object.prototype member, which node-gamedig fails on",
+ "args": [
+  "--type=prb2"
+ ],
+ "exchanges": [
+  {
+   "request": "fefd090000000100000000",
+   "responses": [
+    "09000000013000"
+   ]
+  },
+  {
+   "request": "fefd0000000001ffffff01",
+   "responses": [
+    "000000000173706c69746e756d008001686f73746e616d650050520000785f636f6e7374727563746f720000760000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "error": "Failed all 1 attempts"
+ }
+}

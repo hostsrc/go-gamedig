@@ -1,0 +1,19 @@
+{
+ "description": "a final part without queryid is part #0, which node-gamedig never treats as complete",
+ "args": [
+  "--type=vietcong",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "5c7374617475735c787365727665727175657279",
+   "responses": [
+    "5c686f73746e616d655c56696574636f6e675c6d61706e616d655c4875655c66696e616c5c"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "error": "Failed all 1 attempts"
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "description": "S.T.A.L.K.E.R.: two packets numbered 5 and 1 (last) leave packet #0 missing",
+ "args": [
+  "--type=stalker"
+ ],
+ "exchanges": [
+  {
+   "request": "fefd090000000100000000",
+   "responses": [
+    "090000000131323334353600"
+   ]
+  },
+  {
+   "request": "fefd00000000010001e240ffffff01",
+   "responses": [
+    "000000000173706c69746e756d000501686f73746e616d6500780000",
+    "000000000173706c69746e756d0081016d61706e616d6500790000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "error": "Failed all 1 attempts"
+ }
+}

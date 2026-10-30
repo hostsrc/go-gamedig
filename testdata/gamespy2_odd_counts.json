@@ -1,0 +1,46 @@
+{
+ "description": "Breed: a non-numeric maxplayers prints null, numplayers \"1e3\" parses as 1, hex game port",
+ "args": [
+  "--type=breed"
+ ],
+ "exchanges": [
+  {
+   "request": "fefd0000000001ff0000",
+   "responses": [
+    "0000000001686f73746e616d65004272656564006d6178706c6179657273006c6f7473006e756d706c61796572730031653300686f7374706f7274003078314639300000"
+   ]
+  },
+  {
+   "request": "fefd000000000100ff00",
+   "responses": [
+    "00000000010000"
+   ]
+  },
+  {
+   "request": "fefd00000000010000ff",
+   "responses": [
+    "00000000010000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:8080",
+  "map": "",
+  "maxplayers": null,
+  "name": "Breed",
+  "numplayers": 1,
+  "password": false,
+  "players": [],
+  "queryPort": 0,
+  "raw": {
+   "hostname": "Breed",
+   "hostport": "0x1F90",
+   "maxplayers": "lots",
+   "numplayers": "1e3",
+   "teams": []
+  },
+  "version": ""
+ }
+}
