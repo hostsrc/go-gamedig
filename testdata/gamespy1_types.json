@@ -1,0 +1,75 @@
+{
+ "description": "Unreal Tournament single-part reply: lowercased duplicate keys, true/false/number conversion with JavaScript Number() edge cases, keys that stay strings, a __PROTO__ key, numeric team IDs without team names and an empty team",
+ "args": [
+  "--type=unrealtournament"
+ ],
+ "exchanges": [
+  {
+   "request": "5c7374617475735c787365727665727175657279",
+   "responses": [
+    "5c686f73746e616d655c55543939209351756f74656494209fff5c6d61706e616d655c444d2d4465636b31365d5b5c6d6178706c61796572735c31365c6e756d706c61796572735c325c686f7374706f72745c373737375c70617373776f72645c547275655c67616d657665725c3435315c6d696e6e65747665725c3433325c41646d696e4e616d655c41646d696e5c41646d696e454d61696c5c61646d696e406578616d706c652e636f6d5c67616d65747970655c44656174684d617463685c67616d656d6f64655c6f70656e706c6179696e675c6368616e67656c6576656c735c46414c53455c746f75726e616d656e745c66616c73655c667261676c696d69745c203330205c74696d656c696d69745c307831455c676f616c7465616d73636f72655c3165335c62616c616e63657465616d735c496e66696e6974795c776f726c646c6f675c5c626f74736b696c6c5c536b696c6c65645c776562736974655c3132335c6c697374656e7365727665725c2d305c6d61787465616d735c2e355c6d696e706c61796572735c31653430305c486f73746e616d655c72656e616d65645c6e616d655f7461675f64697374616e63655c747275655c706c617965725f305c4e656f5c66726167735f305c355c70696e675f305c2034345c7465616d5f305c3235355c6d6573685f305c4d616c6520436f6d6d616e646f5c6e677365637265745f305c747275655c706c617965725f315c5472696e6974795c66726167735f315c2d315c70696e675f315c305c7465616d5f315c5c5f5f50524f544f5f5f5c785c717565727969645c37372e315c66696e616c5c"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:7777",
+  "map": "DM-Deck16][",
+  "maxplayers": 16,
+  "name": "renamed",
+  "numplayers": 2,
+  "password": true,
+  "players": [
+   {
+    "name": "Neo",
+    "raw": {
+     "frags": 5,
+     "mesh": "Male Commando",
+     "ngsecret": true,
+     "ping": 44,
+     "team": 255
+    }
+   },
+   {
+    "name": "Trinity",
+    "raw": {
+     "frags": -1,
+     "ping": 0,
+     "team": "0"
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "__proto__": "x",
+   "adminemail": "admin@example.com",
+   "adminname": "Admin",
+   "balanceteams": null,
+   "botskill": "Skilled",
+   "changelevels": false,
+   "fraglimit": 30,
+   "gamemode": "openplaying",
+   "gametype": "DeathMatch",
+   "gamever": 451,
+   "goalteamscore": 1000,
+   "hostname": "renamed",
+   "hostport": 7777,
+   "listenserver": 0,
+   "mapname": "DM-Deck16][",
+   "maxplayers": 16,
+   "maxteams": 0.5,
+   "minnetver": 432,
+   "minplayers": null,
+   "name_tag_distance": "true",
+   "numplayers": 2,
+   "password": true,
+   "teams": {},
+   "timelimit": 30,
+   "tournament": "false",
+   "website": "123",
+   "worldlog": ""
+  },
+  "version": "451"
+ }
+}

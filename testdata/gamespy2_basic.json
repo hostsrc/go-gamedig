@@ -1,0 +1,89 @@
+{
+ "description": "ARMA: Armed Assault info, players and teams with row counts, empty scores and a game port",
+ "args": [
+  "--type=aaa"
+ ],
+ "exchanges": [
+  {
+   "request": "fefd0000000001ff0000",
+   "responses": [
+    "0000000001686f73746e616d65002041524d4120c4726d656420536572766572200067616d6576657200312e313400686f7374706f727400323330320070617373776f726400300067616d656e616d650061726d65646173730067616d657479706500435449006d61706e616d650053617261006e756d706c61796572730033006d6178706c6179657273003332616263006d6f64005248533b4341007465616d73006f7665727772697474656e0000"
+   ]
+  },
+  {
+   "request": "fefd000000000100ff00",
+   "responses": [
+    "00000000010003706c617965725f0073636f72655f006465617468735f0070696e675f007465616d5f0000c56e67737472f66d0031300035003530003100426f6200003000313230003200436861726c6965002d3400780030783166003100"
+   ]
+  },
+  {
+   "request": "fefd00000000010000ff",
+   "responses": [
+    "000000000100027465616d5f740073636f72655f74007469636b6574735f740000424c55464f5200313500333030004f50464f5200370000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:2302",
+  "map": "Sara",
+  "maxplayers": 32,
+  "name": "ARMA Ärmed Server",
+  "numplayers": 3,
+  "password": false,
+  "players": [
+   {
+    "name": "Ångström",
+    "raw": {
+     "deaths": 5,
+     "ping": 50,
+     "score": 10,
+     "team": 1
+    }
+   },
+   {
+    "name": "Bob",
+    "raw": {
+     "deaths": 0,
+     "ping": 120,
+     "team": 2
+    }
+   },
+   {
+    "name": "Charlie",
+    "raw": {
+     "deaths": null,
+     "ping": 31,
+     "score": -4,
+     "team": 1
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "gamename": "armedass",
+   "gametype": "CTI",
+   "gamever": "1.14",
+   "hostname": " ARMA Ärmed Server ",
+   "hostport": "2302",
+   "mapname": "Sara",
+   "maxplayers": "32abc",
+   "mod": "RHS;CA",
+   "numplayers": "3",
+   "password": "0",
+   "teams": [
+    {
+     "name": "BLUFOR",
+     "score_t": "15",
+     "tickets": 300
+    },
+    {
+     "name": "OPFOR",
+     "score_t": "7"
+    }
+   ]
+  },
+  "version": "1.14"
+ }
+}

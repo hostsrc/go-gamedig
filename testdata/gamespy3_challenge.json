@@ -1,0 +1,105 @@
+{
+ "description": "Crysis Wars: negative challenge key, a stray packet of the wrong type, three status packets out of order with player columns split across them and team columns",
+ "args": [
+  "--type=crysiswars"
+ ],
+ "exchanges": [
+  {
+   "request": "fefd090000000100000000",
+   "responses": [
+    "09000000012d313233343536373800"
+   ]
+  },
+  {
+   "request": "fefd0000000001ff439eb2ffffff01",
+   "responses": [
+    "09000000013100",
+    "000000000173706c69746e756d00820173636f72655f00023700006465617468735f0000340031003000007465616d5f7400005553004e4b000073636f72655f7400003135303000313230300000",
+    "000000000173706c69746e756d000001686f73746e616d6500437279736973205761727320a9205365727665720067616d6576657200312e352e3100686f7374706f7274003634303837006d61706e616d65004d6573610067616d657479706500506f7765725374727567676c65006e756d706c61796572730033006d6178706c61796572730033320070617373776f72640030000001706c617965725f00004e6f6d61640050737963686f000073636f72655f00003130002d330000",
+    "000000000173706c69746e756d00010170696e675f0000353000373000007465616d5f00003100320000706c617965725f000250726f706865740000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:64087",
+  "map": "Mesa",
+  "maxplayers": 32,
+  "name": "Crysis Wars © Server",
+  "numplayers": 3,
+  "password": false,
+  "players": [
+   {
+    "name": "Nomad",
+    "raw": {
+     "deaths": 4,
+     "ping": 50,
+     "score": 10,
+     "team": 1
+    }
+   },
+   {
+    "name": "Psycho",
+    "raw": {
+     "deaths": 1,
+     "ping": 70,
+     "score": -3,
+     "team": 2
+    }
+   },
+   {
+    "name": "Prophet",
+    "raw": {
+     "deaths": 0,
+     "score": 7
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "gametype": "PowerStruggle",
+   "gamever": "1.5.1",
+   "hostname": "Crysis Wars © Server",
+   "hostport": "64087",
+   "mapname": "Mesa",
+   "maxplayers": "32",
+   "numplayers": "3",
+   "password": "0",
+   "playerTeamInfo": {
+    "": [
+     {
+      "deaths": "4",
+      "ping": "50",
+      "player": "Nomad",
+      "score": "10",
+      "team": "1"
+     },
+     {
+      "deaths": "1",
+      "ping": "70",
+      "player": "Psycho",
+      "score": "-3",
+      "team": "2"
+     },
+     {
+      "deaths": "0",
+      "player": "Prophet",
+      "score": "7"
+     }
+    ],
+    "t": [
+     {
+      "score": "1500",
+      "team": "US"
+     },
+     {
+      "score": "1200",
+      "team": "NK"
+     }
+    ]
+   }
+  },
+  "version": "1.5.1"
+ }
+}

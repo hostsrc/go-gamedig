@@ -1,0 +1,73 @@
+{
+ "description": "Battlefield 2 sends challenge 0, meaning none; one packet with servername instead of hostname, UT3-style placeholder values, a non-numeric pid and fields without an item type",
+ "args": [
+  "--type=battlefield2"
+ ],
+ "exchanges": [
+  {
+   "request": "fefd090000000100000000",
+   "responses": [
+    "09000000013000"
+   ]
+  },
+  {
+   "request": "fefd0000000001ffffff01",
+   "responses": [
+    "000000000173706c69746e756d0080017365727665726e616d6500204246322096204b61726b616e6420006d61706e616d6500537472696b65206174204b61726b616e64006d6178706c61796572730036346162630070617373776f7264003100626f747300703130373337343138323700703236383433353730340034006266325f72616e6b6564003100000002706c617965725f000041004200007069645f0000780020313200004149426f745f00013100006465617468730000330000"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "Strike at Karkand",
+  "maxplayers": 64,
+  "name": "BF2 – Karkand",
+  "numplayers": 2,
+  "password": true,
+  "players": [
+   {
+    "name": "A",
+    "raw": {
+     "pid": null
+    }
+   },
+   {
+    "name": "B",
+    "raw": {
+     "AIBot": "1",
+     "pid": 12
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "bf2_ranked": "1",
+   "bots": "4",
+   "mapname": "Strike at Karkand",
+   "maxplayers": "64abc",
+   "password": "1",
+   "playerTeamInfo": {
+    "": [
+     {
+      "pid": "x",
+      "player": "A"
+     },
+     {
+      "AIBot": "1",
+      "pid": " 12",
+      "player": "B"
+     }
+    ],
+    "no_": [
+     {
+      "deaths": "3"
+     }
+    ]
+   },
+   "servername": " BF2 – Karkand "
+  },
+  "version": ""
+ }
+}

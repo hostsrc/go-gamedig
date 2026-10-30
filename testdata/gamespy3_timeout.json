@@ -1,0 +1,23 @@
+{
+ "description": "challenge answered but the status request is not",
+ "args": [
+  "--type=battlefield2142",
+  "--socketTimeout=300"
+ ],
+ "exchanges": [
+  {
+   "request": "fefd090000000100000000",
+   "responses": [
+    "0900000001343200"
+   ]
+  },
+  {
+   "request": "fefd00000000010000002affffff01",
+   "responses": []
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "error": "Failed all 1 attempts"
+ }
+}

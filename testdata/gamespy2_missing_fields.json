@@ -1,0 +1,50 @@
+{
+ "description": "SWAT 4 info without name, ports or counts; non-numeric ping; a row cut short by an empty first value; an empty teams reply",
+ "args": [
+  "--type=swat4"
+ ],
+ "exchanges": [
+  {
+   "request": "fefd0000000001ff0000",
+   "responses": [
+    "000000000167616d656e616d65007377617434000000"
+   ]
+  },
+  {
+   "request": "fefd000000000100ff00",
+   "responses": [
+    "00000000010000706c617965720073636f72655f0070696e675f00004c6f6e6500006162630000310032004e657665720033003400"
+   ]
+  },
+  {
+   "request": "fefd00000000010000ff",
+   "responses": [
+    "0000000001"
+   ]
+  }
+ ],
+ "gamedig_version": "5.3.3",
+ "expected": {
+  "bots": [],
+  "connect": "127.0.0.1:PORT",
+  "map": "",
+  "maxplayers": 0,
+  "name": "",
+  "numplayers": 1,
+  "password": false,
+  "players": [
+   {
+    "name": "Lone",
+    "raw": {
+     "ping": null
+    }
+   }
+  ],
+  "queryPort": 0,
+  "raw": {
+   "gamename": "swat4",
+   "teams": []
+  },
+  "version": ""
+ }
+}
